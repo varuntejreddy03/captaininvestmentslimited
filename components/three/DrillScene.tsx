@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { BOREHOLE_PROCESS_STEPS } from '@/lib/constants';
 import { StrataScene } from './StrataScene';
 import { StudioEnvironment } from './StudioEnvironment';
+import { useInView } from './useInView';
 import { CheckCircle2, Droplets, Layers, ArrowDown, Activity, Gauge } from 'lucide-react';
 
 const STRATA_LABELS = [
@@ -24,6 +25,7 @@ export function DrillScene() {
   const progressRef = useRef(0);
   const activeStepRef = useRef(0);
   const [hasWebGL, setHasWebGL] = useState(true);
+  const [canvasBoxRef, canvasVisible] = useInView<HTMLDivElement>();
 
   useEffect(() => {
     try {
@@ -82,7 +84,7 @@ export function DrillScene() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch">
             {/* 3D cross-section */}
-            <div className="lg:col-span-5 relative h-[230px] sm:h-[400px] lg:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-b from-[#0c1424] to-[#05070d]">
+            <div ref={canvasBoxRef} className="lg:col-span-5 relative h-[230px] sm:h-[400px] lg:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-b from-[#0c1424] to-[#05070d]">
               <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 font-mono text-[10px] sm:text-xs text-amber-300 transition-all">
                 {STRATA_LABELS[activeStep]}
               </div>
@@ -108,8 +110,9 @@ export function DrillScene() {
               {hasWebGL ? (
                 <Canvas
                   camera={{ position: [0, -0.35, 15], fov: 34 }}
-                  dpr={[1, 1.75]}
+                  dpr={[1, 1.5]}
                   shadows
+                  frameloop={canvasVisible ? 'always' : 'never'}
                   gl={{ antialias: true, powerPreference: 'high-performance' }}
                   onCreated={({ gl }) => {
                     gl.toneMapping = THREE.ACESFilmicToneMapping;

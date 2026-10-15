@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ContactShadows } from '@react-three/drei';
 import { StudioEnvironment } from './StudioEnvironment';
+import { useInView } from './useInView';
 import * as THREE from 'three';
 import { ACESFilmicToneMapping } from 'three';
 import Image from 'next/image';
@@ -120,6 +121,7 @@ export function Hero3D() {
   const [isOperating, setIsOperating] = useState(true);
   const [canRenderWebGL, setCanRenderWebGL] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [viewportRef, viewportVisible] = useInView<HTMLDivElement>();
 
   useEffect(() => {
     setIsMounted(true);
@@ -145,7 +147,7 @@ export function Hero3D() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-[#070D1E]">
+    <section className="relative min-h-[100svh] flex items-center justify-center pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-[#070D1E]">
       {/* Background cinematic radial glows */}
       <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-[#0A5BB5]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none" />
@@ -266,7 +268,7 @@ export function Hero3D() {
               </div>
 
               {/* 3D Canvas Viewport */}
-              <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[480px]">
+              <div ref={viewportRef} className="relative w-full h-[380px] sm:h-[460px] lg:h-[480px]">
                 {/* Orbit Help Pill */}
                 {activeMachine === 'excavator' && (
                   <div className="absolute top-3 left-3 z-10 pointer-events-none flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-slate-300">
@@ -282,8 +284,9 @@ export function Hero3D() {
                     <Canvas
                       camera={{ position: [5.2, 2.0, 6.0], fov: 36 }}
                       shadows
+                      frameloop={viewportVisible ? 'always' : 'never'}
                       onCreated={({ gl }) => { gl.toneMapping = ACESFilmicToneMapping; gl.toneMappingExposure = 1.05; }}
-                      dpr={[1, 1.5]}
+                      dpr={[1, 1.25]}
                       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
                       className="w-full h-full cursor-grab active:cursor-grabbing"
                     >

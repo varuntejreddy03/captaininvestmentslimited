@@ -12,31 +12,39 @@ interface FleetTiltCardProps {
 
 export function FleetTiltCard({ machine }: FleetTiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [rotX, setRotX] = useState(0);
-  const [rotY, setRotY] = useState(0);
+  const frame = useRef(0);
+  const tiltOn = useRef(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  // Tilt is written straight to the element (no React re-render per mouse move) and only
+  // for real mice, so touch scrolling never triggers it.
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -10; // max 10 deg
-    const rotateY = ((x - centerX) / centerX) * 10;
-
-    setRotX(rotateX);
-    setRotY(rotateY);
+    const el = cardRef.current;
+    if (!el || !tiltOn.current) return;
+    const { clientX, clientY } = e;
+    cancelAnimationFrame(frame.current);
+    frame.current = requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      const rotateX = ((clientY - rect.top - rect.height / 2) / (rect.height / 2)) * -8;
+      const rotateY = ((clientX - rect.left - rect.width / 2) / (rect.width / 2)) * 8;
+      el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
   };
 
-  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseEnter = () => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    tiltOn.current = true;
+    setIsHovered(true);
+    if (cardRef.current) cardRef.current.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s';
+  };
   const handleMouseLeave = () => {
+    tiltOn.current = false;
     setIsHovered(false);
-    setRotX(0);
-    setRotY(0);
+    cancelAnimationFrame(frame.current);
+    if (cardRef.current) {
+      cardRef.current.style.transition = 'transform 0.5s ease-out, box-shadow 0.3s';
+      cardRef.current.style.transform = '';
+    }
   };
 
   const whatsappUrl = buildMachineRequestUrl(machine.name, machine.model);
@@ -48,12 +56,6 @@ export function FleetTiltCard({ machine }: FleetTiltCardProps) {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transform: isHovered
-          ? `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`
-          : 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
-        transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out',
-      }}
       className="group relative flex flex-col justify-between rounded-3xl glass-panel p-6 border border-white/10 hover:border-amber-400/40 shadow-xl hover:shadow-[0_15px_40px_rgba(10,91,181,0.25)] transition-shadow duration-300 overflow-hidden"
     >
       {/* 3D Track Accent Pattern on Top Card Rim */}
