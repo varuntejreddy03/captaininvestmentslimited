@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function FleetPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* Fleet Hero Header */}
       <section className="relative py-16 lg:py-24 border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-radial from-[#0A5BB5]/20 via-transparent to-transparent pointer-events-none" />
@@ -35,7 +35,7 @@ export default function FleetPage() {
       </section>
 
       {/* Fleet Grid */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {FLEET_MACHINES.map((machine) => (
             <FleetTiltCard key={machine.id} machine={machine} />
@@ -81,7 +81,7 @@ export default function FleetPage() {
       </section>
 
       {/* Quick Booking CTA */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white uppercase">
             Need a custom multi-machine package?

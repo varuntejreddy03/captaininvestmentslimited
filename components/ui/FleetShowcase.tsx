@@ -27,7 +27,7 @@ export function FleetShowcase() {
   };
 
   return (
-    <section className="relative py-24 bg-[#070D1E] overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-[#070D1E] overflow-hidden">
       {/* Background Track Accent */}
       <div className="absolute inset-0 track-pattern opacity-30 pointer-events-none" />
 
@@ -65,7 +65,7 @@ export function FleetShowcase() {
             </button>
             <Link
               href="/fleet"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0A5BB5] hover:bg-[#0A1F6B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0A5BB5] hover:bg-[#0A1F6B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
             >
               <span>Full Specs</span>
               <ArrowRight className="w-4 h-4" />
@@ -74,7 +74,7 @@ export function FleetShowcase() {
         </div>
 
         {/* Category Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-4 sm:mb-6 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -93,12 +93,12 @@ export function FleetShowcase() {
         {/* Horizontal Pin-Scroll Cards Container */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory scroll-smooth no-scrollbar"
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-px-4 snap-x snap-mandatory scroll-smooth no-scrollbar"
         >
           {filteredMachines.map((machine) => (
             <div
               key={machine.id}
-              className="min-w-[300px] sm:min-w-[360px] md:min-w-[380px] snap-center shrink-0"
+              className="w-[84vw] max-w-[380px] sm:w-[360px] md:w-[380px] snap-center shrink-0"
             >
               <FleetTiltCard machine={machine} />
             </div>
@@ -106,8 +106,8 @@ export function FleetShowcase() {
         </div>
 
         {/* Bottom helper */}
-        <div className="mt-4 flex items-center justify-between text-xs text-slate-400 font-mono">
-          <span>&larr; Drag or swipe to explore all 8 machines &rarr;</span>
+        <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 font-mono">
+          <span>&larr; Swipe to explore all 8 machines &rarr;</span>
           <Link href="/fleet" className="text-amber-400 hover:underline inline-flex items-center gap-1">
             <span>View technical dimensions & hire terms</span>
             <ArrowRight className="w-3.5 h-3.5" />

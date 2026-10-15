@@ -65,14 +65,14 @@ export function DrillScene() {
 
   return (
     <div ref={containerRef} className="relative h-[320vh] bg-[#070D1E]">
-      <div className="sticky top-0 h-screen flex items-center pt-20 pb-6">
+      <div className="sticky top-0 h-[100svh] flex items-center pt-[72px] pb-[84px] md:pb-6 lg:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center max-w-3xl mx-auto mb-5 lg:mb-7">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-sky-400 mb-2">
+          <div className="text-center max-w-3xl mx-auto mb-3 sm:mb-5 lg:mb-7">
+            <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-sky-400 mb-2">
               <Layers className="w-3.5 h-3.5 text-amber-400" />
               <span>Scroll-driven borehole cross-section</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white uppercase tracking-normal">
+            <h2 className="font-heading text-xl sm:text-4xl font-bold text-white uppercase tracking-normal">
               The Borehole Journey
             </h2>
             <p className="hidden sm:block text-sm text-slate-300 mt-1.5">
@@ -82,7 +82,7 @@ export function DrillScene() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch">
             {/* 3D cross-section */}
-            <div className="lg:col-span-5 relative h-[300px] sm:h-[400px] lg:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-b from-[#0c1424] to-[#05070d]">
+            <div className="lg:col-span-5 relative h-[230px] sm:h-[400px] lg:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-gradient-to-b from-[#0c1424] to-[#05070d]">
               <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 font-mono text-[10px] sm:text-xs text-amber-300 transition-all">
                 {STRATA_LABELS[activeStep]}
               </div>
@@ -132,7 +132,7 @@ export function DrillScene() {
             </div>
 
             {/* Steps: only the active one is expanded, so everything fits the viewport */}
-            <div className="lg:col-span-7 flex flex-col gap-2.5 justify-center">
+            <div className="lg:col-span-7 flex flex-col gap-2 sm:gap-2.5 justify-center">
               {BOREHOLE_PROCESS_STEPS.map((step, idx) => {
                 const isActive = activeStep === idx;
                 return (
@@ -147,7 +147,7 @@ export function DrillScene() {
                       const target = el.getBoundingClientRect().top + window.scrollY + total * ((idx + 0.5) / BOREHOLE_PROCESS_STEPS.length);
                       window.scrollTo({ top: target, behavior: 'smooth' });
                     }}
-                    className={`rounded-2xl cursor-pointer border px-4 py-3 sm:px-5 transition-colors duration-300 ${
+                    className={`rounded-2xl cursor-pointer border px-3 py-2.5 sm:px-5 sm:py-3 transition-colors duration-300 ${
                       isActive
                         ? 'bg-[#0d1a3a]/80 border-amber-400/40 shadow-[0_10px_40px_-12px_rgba(245,158,11,0.35)]'
                         : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.06]'
@@ -162,7 +162,7 @@ export function DrillScene() {
                         {step.step}
                       </span>
                       <div className="min-w-0">
-                        <h3 className={`font-heading text-base sm:text-lg font-bold truncate transition-colors ${isActive ? 'text-white' : 'text-slate-300'}`}>
+                        <h3 className={`font-heading text-[15px] sm:text-lg font-bold truncate transition-colors ${isActive ? 'text-white' : 'text-slate-300'}`}>
                           {step.title}
                         </h3>
                         <p className="font-mono text-[11px] text-sky-400/90 truncate">
@@ -181,8 +181,8 @@ export function DrillScene() {
                           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                           className="overflow-hidden"
                         >
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-3 sm:pl-11">{step.description}</p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-3 sm:pl-11 pb-1">
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2 sm:mt-3 sm:pl-11">{step.description}</p>
+                          <div className="hidden sm:grid grid-cols-2 gap-1.5 mt-3 sm:pl-11 pb-1">
                             {step.deliverables.map((item) => (
                               <div key={item} className="flex items-start gap-2 text-xs text-slate-300">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
@@ -197,7 +197,7 @@ export function DrillScene() {
                 );
               })}
 
-              <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 pt-1 pl-1">
+              <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-slate-400 pt-1 pl-1">
                 <ArrowDown className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
                 <span>Keep scrolling to complete the aquifer strike</span>
               </div>

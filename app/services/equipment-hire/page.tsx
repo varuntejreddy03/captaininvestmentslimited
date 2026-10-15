@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function EquipmentHirePage() {
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* Hero Header */}
       <section className="relative py-16 lg:py-24 border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-radial from-amber-500/15 via-transparent to-transparent pointer-events-none" />
@@ -56,7 +56,7 @@ export default function EquipmentHirePage() {
       </section>
 
       {/* Wet vs Dry Hire Terms */}
-      <section id="wet-dry" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="wet-dry" className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
             Flexible Commercial Contract Options

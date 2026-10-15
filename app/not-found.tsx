@@ -6,7 +6,7 @@ import { BUSINESS_INFO } from '@/lib/constants';
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-24 bg-[#070D1E] text-center">
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 sm:py-24 bg-[#070D1E] text-center">
       <div className="max-w-md mx-auto space-y-6">
         <div className="w-20 h-20 mx-auto rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-2.5 shadow-[0_0_30px_rgba(245,158,11,0.2)]">
           <Image

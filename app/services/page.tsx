@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* Services Hub Hero Header */}
       <section className="relative py-16 lg:py-24 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-radial from-[#0A5BB5]/20 via-transparent to-transparent pointer-events-none" />
@@ -35,7 +35,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Main Services Deep Dive Section */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-16">
           {/* Service 1: Borehole Drilling */}
           <div className="rounded-3xl glass-panel p-8 sm:p-12 border border-white/10 relative overflow-hidden">
@@ -193,7 +193,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Direct Call to Action */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white uppercase">
             Ready to mobilze to your site?

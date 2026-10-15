@@ -16,7 +16,7 @@ export default function BoreholeDrillingPage() {
   const quickWaUrl = buildQuickBoreholeQuoteUrl();
 
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* Hero Header */}
       <section className="relative py-16 lg:py-24 border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-radial from-[#0A5BB5]/25 via-transparent to-transparent pointer-events-none" />
@@ -58,7 +58,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
       {/* 4-Stage Geological Workflow */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
             End-to-End Methodology
@@ -160,7 +160,7 @@ export default function BoreholeDrillingPage() {
       </section>
 
       {/* Solar Submersible & Tank Stand Systems */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl glass-panel p-8 sm:p-12 border border-white/10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">

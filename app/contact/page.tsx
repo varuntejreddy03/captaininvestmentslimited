@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* Contact Section Component (with Split Layout, Live Hours, Map, and Zod Form) */}
       <ContactSection />
 

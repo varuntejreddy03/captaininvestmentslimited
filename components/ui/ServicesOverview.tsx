@@ -8,7 +8,7 @@ import { Droplets, Tractor, ArrowRight, CheckCircle2, ShieldCheck, Zap } from 'l
 
 export function ServicesOverview() {
   return (
-    <section id="services" className="relative py-24 bg-[#070D1E] overflow-hidden">
+    <section id="services" className="relative py-16 sm:py-24 bg-[#070D1E] overflow-hidden">
       {/* Background track line */}
       <div className="absolute top-0 left-0 right-0 h-1.5 track-pattern bg-white/5" />
 

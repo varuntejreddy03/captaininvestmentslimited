@@ -162,7 +162,7 @@ export function Hero3D() {
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-white/5 border border-white/10 text-sky-300">
                 <Compass className="w-3.5 h-3.5 text-amber-400" />
-                <span>Lusaka Operating Hub • Nationwide Mobilization</span>
+                <span>Lusaka Hub <span className="hidden sm:inline">• Nationwide Mobilization</span></span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -172,7 +172,7 @@ export function Hero3D() {
 
             {/* Main Headline with Real Space Grotesk Styling */}
             <div className="space-y-3">
-              <h1 className="font-heading text-4xl sm:text-6xl xl:text-7xl font-bold uppercase tracking-normal text-white leading-[1.04]">
+              <h1 className="font-heading text-[2.6rem] leading-[1.05] sm:text-6xl xl:text-7xl font-bold uppercase tracking-normal text-white leading-[1.04]">
                 We Drill. <br />
                 <span className="text-amber-400">We Dig.</span> <br />
                 We Deliver.
@@ -221,13 +221,13 @@ export function Hero3D() {
             <div className="relative rounded-3xl glass-panel border border-white/15 shadow-2xl overflow-hidden bg-gradient-to-b from-[#0D1630] to-[#050811]">
               
               {/* Top Studio Control Bar */}
-              <div className="p-4 bg-black/40 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-30">
+              <div className="p-3 sm:p-4 bg-black/40 border-b border-white/10 flex items-center justify-between gap-2 relative z-30">
                 {/* Equipment Mode Switcher */}
                 <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10">
                   <button
                     type="button"
                     onClick={() => setActiveMachine('excavator')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
                       activeMachine === 'excavator'
                         ? 'bg-amber-400 text-slate-950 shadow-md'
                         : 'text-slate-300 hover:text-white'
@@ -240,7 +240,7 @@ export function Hero3D() {
                   <button
                     type="button"
                     onClick={() => setActiveMachine('photos')}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
                       activeMachine === 'photos'
                         ? 'bg-amber-400 text-slate-950 shadow-md'
                         : 'text-slate-300 hover:text-white'
@@ -260,7 +260,7 @@ export function Hero3D() {
                     title={isOperating ? 'Pause motion' : 'Play motion'}
                   >
                     {isOperating ? <Pause className="w-3.5 h-3.5 text-amber-400" /> : <Play className="w-3.5 h-3.5 text-emerald-400" />}
-                    <span className="font-mono text-[11px]">{isOperating ? 'Playing' : 'Paused'}</span>
+                    <span className="hidden sm:inline font-mono text-[11px]">{isOperating ? 'Playing' : 'Paused'}</span>
                   </button>
                 </div>
               </div>

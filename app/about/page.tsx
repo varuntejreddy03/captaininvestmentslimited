@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#070D1E] text-white">
+    <div className="pt-24 pb-12 sm:pb-20 bg-[#070D1E] text-white">
       {/* About Hero Header */}
       <section className="relative py-16 lg:py-24 border-b border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-radial from-[#0A5BB5]/20 via-transparent to-transparent pointer-events-none" />
@@ -37,7 +37,7 @@ export default function AboutPage() {
       </section>
 
       {/* Brand Motif Story */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative p-8 rounded-3xl glass-panel border border-white/10 shadow-2xl flex flex-col items-center text-center">
@@ -115,7 +115,7 @@ export default function AboutPage() {
       </section>
 
       {/* Operating Commitments */}
-      <section className="py-20 bg-[#050811] border-t border-b border-white/10">
+      <section className="py-14 sm:py-20 bg-[#050811] border-t border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
@@ -145,7 +145,7 @@ export default function AboutPage() {
       </section>
 
       {/* Lusaka Base & Contact CTA */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2">
             <LiveHoursBadge showTime />
