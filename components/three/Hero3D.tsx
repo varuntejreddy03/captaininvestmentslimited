@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, ContactShadows, Environment } from '@react-three/drei';
+import { OrbitControls, ContactShadows } from '@react-three/drei';
+import { StudioEnvironment } from './StudioEnvironment';
+import * as THREE from 'three';
+import { ACESFilmicToneMapping } from 'three';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 import { RealExcavatorModel } from './RealExcavatorModel';
-import { RealisticDrillRig } from './RealisticDrillRig';
 import { BUSINESS_INFO } from '@/lib/constants';
 import {
   Phone,
@@ -20,6 +23,87 @@ import {
   Sparkles,
 } from 'lucide-react';
 
+/** Dusty site floor that fades smoothly into the background (no hard disc edge). */
+function SiteGround({ y }: { y: number }) {
+  const map = React.useMemo(() => {
+    const c = document.createElement('canvas');
+    c.width = c.height = 256;
+    const g = c.getContext('2d')!;
+    const grad = g.createRadialGradient(128, 128, 10, 128, 128, 128);
+    grad.addColorStop(0, 'rgba(70,60,48,1)');
+    grad.addColorStop(0.55, 'rgba(48,42,34,0.75)');
+    grad.addColorStop(1, 'rgba(7,13,30,0)');
+    g.fillStyle = grad;
+    g.fillRect(0, 0, 256, 256);
+    // fine gravel speckle
+    for (let i = 0; i < 2200; i++) {
+      const x = Math.random() * 256, r = Math.random() * 1.2;
+      const yy = Math.random() * 256;
+      if (Math.hypot(x - 128, yy - 128) > 120) continue;
+      g.fillStyle = `rgba(${Math.random() > 0.5 ? '120,105,85' : '20,18,15'},${0.15 + Math.random() * 0.25})`;
+      g.beginPath(); g.arc(x, yy, r, 0, 7); g.fill();
+    }
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+  }, []);
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, y, 0]} receiveShadow>
+      <circleGeometry args={[10, 64]} />
+      <meshStandardMaterial map={map} transparent roughness={1} metalness={0} depthWrite={false} />
+    </mesh>
+  );
+}
+
+const REEL = [
+  { src: '/images/excavator-rocks.jpg', label: 'Excavator · rock & trenching' },
+  { src: '/images/backhoe-sunset.jpg', label: 'Backhoe loader · site works' },
+  { src: '/images/bulldozer.jpg', label: 'Bulldozer · clearing & levelling' },
+  { src: '/images/wheel-loader.jpg', label: 'Wheel loader · loading & haulage' },
+];
+
+/** Cinematic photo reel: slow push-in (Ken Burns) with soft crossfades between real fleet photos. */
+function PhotoReel({ playing }: { playing: boolean }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (!playing) return;
+    const id = setInterval(() => setI((v) => (v + 1) % REEL.length), 4800);
+    return () => clearInterval(id);
+  }, [playing]);
+  const item = REEL[i];
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-black">
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={item.src}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: playing ? 1.12 : 1.02 }}
+          exit={{ opacity: 0 }}
+          transition={{ opacity: { duration: 1.1 }, scale: { duration: 6.5, ease: 'linear' } }}
+        >
+          <Image src={item.src} alt={item.label} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" priority={i === 0} />
+        </motion.div>
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D1E]/90 via-transparent to-[#070D1E]/30 pointer-events-none" />
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3">
+        <span className="px-3 py-1.5 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-white">{item.label}</span>
+        <div className="flex gap-1.5">
+          {REEL.map((r, k) => (
+            <button
+              key={r.src}
+              type="button"
+              aria-label={`Show ${r.label}`}
+              onClick={() => setI(k)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${k === i ? 'w-6 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SceneLoader() {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#070D1E]/80 backdrop-blur-md z-20">
@@ -32,7 +116,7 @@ function SceneLoader() {
 }
 
 export function Hero3D() {
-  const [activeMachine, setActiveMachine] = useState<'excavator' | 'drill'>('excavator');
+  const [activeMachine, setActiveMachine] = useState<'excavator' | 'photos'>('excavator');
   const [isOperating, setIsOperating] = useState(true);
   const [canRenderWebGL, setCanRenderWebGL] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -150,20 +234,20 @@ export function Hero3D() {
                     }`}
                   >
                     <Tractor className="w-3.5 h-3.5" />
-                    <span>CAT Excavator (3D)</span>
+                    <span>3D Excavator</span>
                   </button>
 
                   <button
                     type="button"
-                    onClick={() => setActiveMachine('drill')}
+                    onClick={() => setActiveMachine('photos')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                      activeMachine === 'drill'
+                      activeMachine === 'photos'
                         ? 'bg-amber-400 text-slate-950 shadow-md'
                         : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     <Droplets className="w-3.5 h-3.5" />
-                    <span>Borehole Rig</span>
+                    <span>Live Fleet Photos</span>
                   </button>
                 </div>
 
@@ -173,10 +257,10 @@ export function Hero3D() {
                     type="button"
                     onClick={() => setIsOperating(!isOperating)}
                     className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs flex items-center gap-1.5 transition-colors"
-                    title={isOperating ? 'Pause Simulation' : 'Run Simulation'}
+                    title={isOperating ? 'Pause motion' : 'Play motion'}
                   >
                     {isOperating ? <Pause className="w-3.5 h-3.5 text-amber-400" /> : <Play className="w-3.5 h-3.5 text-emerald-400" />}
-                    <span className="font-mono text-[11px]">{isOperating ? 'Operating' : 'Paused'}</span>
+                    <span className="font-mono text-[11px]">{isOperating ? 'Playing' : 'Paused'}</span>
                   </button>
                 </div>
               </div>
@@ -184,64 +268,71 @@ export function Hero3D() {
               {/* 3D Canvas Viewport */}
               <div className="relative w-full h-[380px] sm:h-[460px] lg:h-[480px]">
                 {/* Orbit Help Pill */}
-                <div className="absolute top-3 left-3 z-10 pointer-events-none flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-slate-300">
-                  <RotateCcw className="w-3 h-3 text-sky-400" />
-                  <span>Drag to Orbit 360° • Scroll to Zoom</span>
-                </div>
+                {activeMachine === 'excavator' && (
+                  <div className="absolute top-3 left-3 z-10 pointer-events-none flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-slate-300">
+                    <RotateCcw className="w-3 h-3 text-sky-400" />
+                    <span>Drag to rotate • Scroll to zoom</span>
+                  </div>
+                )}
 
-                {isMounted && canRenderWebGL ? (
+                {activeMachine === 'photos' ? (
+                  <PhotoReel playing={isOperating} />
+                ) : isMounted && canRenderWebGL ? (
                   <Suspense fallback={<SceneLoader />}>
                     <Canvas
-                      camera={{ position: [5.2, 2.6, 6.2], fov: 42 }}
+                      camera={{ position: [5.2, 2.0, 6.0], fov: 36 }}
+                      shadows
+                      onCreated={({ gl }) => { gl.toneMapping = ACESFilmicToneMapping; gl.toneMappingExposure = 1.05; }}
                       dpr={[1, 1.5]}
                       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
                       className="w-full h-full cursor-grab active:cursor-grabbing"
                     >
                       <OrbitControls
                         enablePan={false}
-                        minDistance={3.5}
-                        maxDistance={12.0}
-                        maxPolarAngle={Math.PI / 2 + 0.05}
-                        minPolarAngle={Math.PI / 6}
-                        autoRotate={!isOperating}
-                        autoRotateSpeed={0.8}
+                        enableDamping
+                        dampingFactor={0.06}
+                        minDistance={4}
+                        maxDistance={11}
+                        maxPolarAngle={Math.PI / 2 - 0.04}
+                        minPolarAngle={Math.PI / 5}
+                        autoRotate
+                        autoRotateSpeed={isOperating ? 0.45 : 0}
                       />
 
-                      {/* Industrial Studio & Specular Lighting */}
-                      <ambientLight intensity={0.8} />
-                      <directionalLight position={[8, 12, 8]} intensity={2.0} color="#FFFFFF" castShadow />
-                      <directionalLight position={[-8, 6, -6]} intensity={1.2} color="#38BDF8" />
-                      <pointLight position={[4, 2, 4]} intensity={2.2} color="#F59E0B" />
-                      <pointLight position={[-4, 1, 2]} intensity={1.8} color="#0A5BB5" />
+                      {/* Natural daylight: warm low sun, cool sky fill, no coloured neon lights */}
+                      <hemisphereLight args={['#cfe0f5', '#5b4a38', 0.55]} />
+                      <directionalLight
+                        position={[7, 9, 5]}
+                        intensity={2.4}
+                        color="#fff1dc"
+                        castShadow
+                        shadow-mapSize={[1024, 1024]}
+                      />
+                      <directionalLight position={[-6, 4, -5]} intensity={0.6} color="#bcd3ee" />
 
-                      {/* Studio Environment Reflections for Realistic Metal */}
-                      <Environment preset="city" />
+                      {/* Local studio reflections (no network HDR) */}
+                      <StudioEnvironment />
 
-                      {/* Ground Contact Shadow */}
+                      {/* Soft grounded shadow on a dusty site floor */}
+                      <SiteGround y={-1.205} />
                       <ContactShadows
-                        position={[0, -1.2, 0]}
-                        opacity={0.65}
-                        scale={10}
-                        blur={2.0}
+                        position={[0, -1.19, 0]}
+                        opacity={0.75}
+                        scale={11}
+                        blur={2.6}
                         far={4}
+                        resolution={512}
                       />
+                      <fog attach="fog" args={['#070D1E', 11, 22]} />
 
-                      {/* Ground Reference Grid */}
-                      <gridHelper args={[14, 20, '#3B8FE0', '#1E293B']} position={[0, -1.2, 0]} />
-
-                      {/* Render Model */}
-                      {activeMachine === 'excavator' ? (
-                        <RealExcavatorModel isOperating={isOperating} />
-                      ) : (
-                        <RealisticDrillRig isDrilling={isOperating} />
-                      )}
+                      <RealExcavatorModel isOperating={isOperating} />
                     </Canvas>
                   </Suspense>
                 ) : (
                   /* High Quality Machinery Fallback */
                   <div className="relative w-full h-full flex items-center justify-center p-6">
                     <Image
-                      src={activeMachine === 'excavator' ? '/images/excavator-rocks.jpg' : '/images/backhoe-sunset.jpg'}
+                      src="/images/excavator-rocks.jpg"
                       alt="Captain Investments Heavy Plant"
                       fill
                       className="object-cover opacity-85"
@@ -250,7 +341,7 @@ export function Hero3D() {
                     <div className="relative z-10 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/15 text-center">
                       <Sparkles className="w-6 h-6 text-amber-400 mx-auto mb-2" />
                       <h4 className="font-heading font-bold text-white text-base">
-                        {activeMachine === 'excavator' ? 'CAT 336 Heavy Excavator' : 'Rotary DTH Borehole Rig'}
+                        CAT 336 Heavy Excavator
                       </h4>
                       <p className="text-xs text-slate-300 mt-1">High-pressure plant deployed across Lusaka</p>
                     </div>
@@ -263,15 +354,11 @@ export function Hero3D() {
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-white font-bold">
-                    {activeMachine === 'excavator'
-                      ? 'Caterpillar 336 Heavy Excavator'
-                      : 'DTH Rotary Percussion Rig'}
+                    {activeMachine === 'excavator' ? 'Caterpillar 336 Heavy Excavator' : 'Captain Investments working fleet'}
                   </span>
                 </div>
                 <span className="text-amber-400">
-                  {activeMachine === 'excavator'
-                    ? '22 Tonnes Operating • Heavy Rock Breaker Boom'
-                    : 'Tri-Cone Carbide Bit • 120m+ Aquifer Reach'}
+                  {activeMachine === 'excavator' ? '22 Tonnes Operating • Heavy Rock Breaker Boom' : 'Real machines • Real Zambian sites'}
                 </span>
               </div>
             </div>
