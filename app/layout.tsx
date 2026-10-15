@@ -4,7 +4,6 @@ import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { Footer } from '@/components/ui/Footer';
 import { MobileStickyBar } from '@/components/ui/MobileStickyBar';
-import { CustomCursor } from '@/components/ui/CustomCursor';
 import { Preloader } from '@/components/ui/Preloader';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -146,7 +145,6 @@ export default function RootLayout({
       <body className="antialiased selection:bg-amber-500 selection:text-black">
         <SmoothScroll>
           <Preloader />
-          <CustomCursor />
           <Navbar />
           <main className="min-h-screen">
             {children}
