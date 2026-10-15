@@ -105,7 +105,7 @@ export function Navbar() {
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-2 lg:hidden">
-              <div className="hidden min-[420px]:block">
+              <div className="hidden min-[500px]:block">
                 <LiveHoursBadge />
               </div>
 
@@ -143,6 +143,10 @@ export function Navbar() {
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="fixed inset-x-3 top-[76px] z-40 lg:hidden max-h-[calc(100dvh-92px)] overflow-y-auto rounded-3xl bg-[#0a1226]/95 backdrop-blur-xl border border-white/15 shadow-2xl p-4"
             >
+              <div className="min-[500px]:hidden flex items-center justify-between px-1 pb-3 mb-2 border-b border-white/10">
+                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">Lusaka office</span>
+                <LiveHoursBadge showTime />
+              </div>
               <nav className="flex flex-col gap-1" aria-label="Mobile">
                 {NAV_LINKS.map((link, i) => {
                   const isActive = pathname === link.href;

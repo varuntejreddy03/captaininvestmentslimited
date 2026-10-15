@@ -35,11 +35,11 @@ export function BrandLogo({ variant = 'horizontal', className = '', size = 'md' 
 
       {variant !== 'mark' && (
         <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="font-heading text-lg sm:text-xl font-bold tracking-normal text-white group-hover:text-amber-400 transition-colors uppercase">
+          <div className="flex items-center gap-1 min-[380px]:gap-1.5 sm:gap-2">
+            <span className="font-heading text-base min-[380px]:text-lg sm:text-xl font-bold tracking-normal text-white group-hover:text-amber-400 transition-colors uppercase">
               Captain
             </span>
-            <span className="font-heading text-lg sm:text-xl font-bold tracking-normal text-amber-400 uppercase">
+            <span className="font-heading text-base min-[380px]:text-lg sm:text-xl font-bold tracking-normal text-amber-400 uppercase">
               Investments
             </span>
           </div>

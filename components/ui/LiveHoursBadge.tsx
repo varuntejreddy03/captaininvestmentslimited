@@ -26,7 +26,7 @@ export function LiveHoursBadge({ showTime = false, className = '' }: LiveHoursBa
 
   if (!status) {
     return (
-      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 animate-pulse ${className}`}>
+      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap bg-white/5 border border-white/10 text-slate-300 animate-pulse ${className}`}>
         <span className="w-2 h-2 rounded-full bg-slate-400" />
         <span>Checking Lusaka Office...</span>
       </div>
@@ -35,7 +35,7 @@ export function LiveHoursBadge({ showTime = false, className = '' }: LiveHoursBa
 
   return (
     <div
-      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md transition-all duration-300 ${
+      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-md transition-all duration-300 ${
         status.isOpen
           ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
           : 'bg-amber-500/15 border border-amber-500/30 text-amber-300'
