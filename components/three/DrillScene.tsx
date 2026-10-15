@@ -72,7 +72,7 @@ export function DrillScene() {
               <Layers className="w-3.5 h-3.5 text-amber-400" />
               <span>Scroll-driven borehole cross-section</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white uppercase tracking-normal">
               The Borehole Journey
             </h2>
             <p className="hidden sm:block text-sm text-slate-300 mt-1.5">

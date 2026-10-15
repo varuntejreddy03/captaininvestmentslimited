@@ -142,7 +142,7 @@ export function FleetTiltCard({ machine }: FleetTiltCardProps) {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full py-3 px-4 rounded-xl font-heading font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02] active:scale-95"
+        className="w-full py-3 px-4 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02] active:scale-95"
       >
         <MessageSquare className="w-4 h-4 text-slate-950" />
         <span>Request This Machine</span>

@@ -61,7 +61,7 @@ export function RealExcavatorModel({ isOperating = true }: RealExcavatorProps) {
   return (
     <group ref={groupRef} position={[0, -1.2, 0]}>
       <group ref={bodyRef}>
-        <primitive object={clonedScene} scale={0.058} rotation={[0, 0.65, 0]} />
+        <primitive object={clonedScene} scale={0.058} rotation={[0, 0.65 + Math.PI, 0]} />
       </group>
     </group>
   );

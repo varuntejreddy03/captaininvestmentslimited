@@ -25,7 +25,7 @@ export default function AboutPage() {
               <span className="w-2 h-2 rounded-full bg-amber-400" />
               <span>Company Profile & Standards</span>
             </div>
-            <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
+            <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-normal text-white">
               Built on Strength. <br />
               <span className="text-amber-400">Driven by Integrity.</span>
             </h1>
@@ -49,7 +49,7 @@ export default function AboutPage() {
                   className="object-contain drop-shadow-[0_0_35px_rgba(10,91,181,0.5)]"
                 />
               </div>
-              <span className="font-heading text-xl font-black text-white">
+              <span className="font-heading text-xl font-bold text-white">
                 The Captain Emblem
               </span>
               <span className="text-xs font-mono text-amber-400 mt-1">
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-7 space-y-6">
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-white">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white">
               The Meaning Behind Our Motif
             </h2>
             <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
               Our Core Principles
             </span>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase">
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase">
               How We Work
             </h2>
           </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
           <div className="inline-flex items-center gap-2">
             <LiveHoursBadge showTime />
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-white uppercase">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white uppercase">
             Headquartered in Lusaka, Zambia
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
@@ -159,7 +159,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
+              className="px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
             >
               Get in Touch with Captain
             </Link>

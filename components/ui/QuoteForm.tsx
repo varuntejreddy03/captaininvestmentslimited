@@ -102,7 +102,7 @@ export function QuoteForm({ initialService, className = '' }: QuoteFormProps) {
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Direct WhatsApp Quote Generator</span>
         </div>
-        <h3 className="font-heading text-xl sm:text-2xl font-black text-white">
+        <h3 className="font-heading text-xl sm:text-2xl font-bold text-white">
           Request a Rapid Quote
         </h3>
         <p className="text-xs sm:text-sm text-slate-300 mt-1">
@@ -237,7 +237,7 @@ export function QuoteForm({ initialService, className = '' }: QuoteFormProps) {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full group py-3 px-6 rounded-xl font-heading font-black text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-slate-950 shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all flex items-center justify-center gap-2 transform active:scale-[0.98] cursor-pointer"
+          className="w-full group py-3 px-6 rounded-xl font-heading font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-slate-950 shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all flex items-center justify-center gap-2 transform active:scale-[0.98] cursor-pointer"
         >
           {submitted ? (
             <>

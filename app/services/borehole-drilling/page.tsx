@@ -26,7 +26,7 @@ export default function BoreholeDrillingPage() {
               <Droplets className="w-3.5 h-3.5" />
               <span>Groundwater Division &bull; Lusaka, Zambia</span>
             </div>
-            <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
+            <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-normal text-white">
               Borehole Drilling <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-amber-400">
                 Engineered for High Yield
@@ -41,7 +41,7 @@ export default function BoreholeDrillingPage() {
                 href={quickWaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
               >
                 <MessageSquare className="w-4 h-4 text-slate-950" />
                 <span>Request Borehole Quote via WhatsApp</span>
@@ -63,7 +63,7 @@ export default function BoreholeDrillingPage() {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
             End-to-End Methodology
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase">
             The 4 Stages to Clean Water
           </h2>
           <p className="text-sm sm:text-base text-slate-300 mt-2">
@@ -120,7 +120,7 @@ export default function BoreholeDrillingPage() {
                 <AlertTriangle className="w-4 h-4" />
                 <span>Lusaka Dolomite Geology Warning</span>
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">
                 Why Siting & Professional Casing Matter in Lusaka
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -168,7 +168,7 @@ export default function BoreholeDrillingPage() {
                 <Sun className="w-3.5 h-3.5" />
                 <span>Zero Load-Shedding Dependency</span>
               </div>
-              <h3 className="font-heading text-3xl sm:text-4xl font-black text-white">
+              <h3 className="font-heading text-3xl sm:text-4xl font-bold text-white">
                 Turnkey Solar Pumping & Elevated Tank Stands
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

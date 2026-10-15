@@ -71,7 +71,7 @@ export function Preloader() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.4 }}
-                className="font-heading text-xl md:text-2xl font-black tracking-wider text-white"
+                className="font-heading text-xl md:text-2xl font-bold tracking-wider text-white"
               >
                 CAPTAIN <span className="text-amber-400">INVESTMENTS</span>
               </motion.h1>

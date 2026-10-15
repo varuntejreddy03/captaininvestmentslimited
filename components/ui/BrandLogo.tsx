@@ -10,9 +10,9 @@ interface BrandLogoProps {
 
 export function BrandLogo({ variant = 'horizontal', className = '', size = 'md' }: BrandLogoProps) {
   const dimensions = {
-    sm: { img: 40, text: 'text-base', sub: 'text-[9px]' },
-    md: { img: 48, text: 'text-xl', sub: 'text-[10px]' },
-    lg: { img: 64, text: 'text-2xl', sub: 'text-xs' },
+    sm: { img: 44, text: 'text-base', sub: 'text-[9px]' },
+    md: { img: 56, text: 'text-xl', sub: 'text-[10px]' },
+    lg: { img: 72, text: 'text-2xl', sub: 'text-xs' },
   }[size];
 
   return (
@@ -36,19 +36,19 @@ export function BrandLogo({ variant = 'horizontal', className = '', size = 'md' 
       {variant !== 'mark' && (
         <div className="flex flex-col justify-center">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="font-heading text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-amber-400 transition-colors uppercase">
+            <span className="font-heading text-lg sm:text-xl font-bold tracking-normal text-white group-hover:text-amber-400 transition-colors uppercase">
               Captain
             </span>
-            <span className="font-heading text-lg sm:text-xl font-extrabold tracking-tight text-amber-400 uppercase">
+            <span className="font-heading text-lg sm:text-xl font-bold tracking-normal text-amber-400 uppercase">
               Investments
             </span>
           </div>
           <div className="flex items-center gap-2 mt-0.5">
-            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.22em] text-slate-400 uppercase font-bold">
+            <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.18em] text-slate-300 uppercase font-semibold">
               Limited
             </span>
             <span className="w-1 h-1 rounded-full bg-amber-400" />
-            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.22em] text-sky-400 uppercase font-bold">
+            <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.18em] text-sky-400 uppercase font-semibold">
               Lusaka, Zambia
             </span>
           </div>

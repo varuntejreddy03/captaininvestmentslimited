@@ -26,7 +26,7 @@ export function StatsBar() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {unconfirmedPlaceholderMetrics.map((stat, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="font-heading text-3xl sm:text-5xl font-black text-amber-400">
+                <span className="font-heading text-3xl sm:text-5xl font-bold text-amber-400">
                   {stat.value}
                 </span>
                 <p className="text-xs sm:text-sm font-medium text-slate-300">

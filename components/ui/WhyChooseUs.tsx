@@ -25,7 +25,7 @@ export function WhyChooseUs() {
             <span className="w-2 h-2 rounded-full bg-amber-400" />
             <span>Industrial Standards You Can Trust</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase tracking-normal">
             Why Contractors Choose Captain
           </h2>
           <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
@@ -76,7 +76,7 @@ export function WhyChooseUs() {
         {/* Callout Strip */}
         <div className="mt-14 p-6 rounded-2xl bg-gradient-to-r from-[#0A1F6B] via-[#0A5BB5]/50 to-[#070D1E] border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-heading font-black text-white text-lg">
+            <h4 className="font-heading font-bold text-white text-lg">
               Have a high-priority construction or borehole project?
             </h4>
             <p className="text-xs sm:text-sm text-slate-200">
@@ -85,7 +85,7 @@ export function WhyChooseUs() {
           </div>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-xl font-heading font-black text-xs uppercase tracking-wider bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0 transition-all active:scale-95"
+            className="px-6 py-3 rounded-xl font-heading font-bold text-xs uppercase tracking-wider bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0 transition-all active:scale-95"
           >
             Contact Dispatch Desk
           </Link>

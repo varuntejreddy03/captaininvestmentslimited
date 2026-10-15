@@ -24,7 +24,7 @@ export default function ContactPage() {
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Quick Answers</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-black text-white uppercase">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white uppercase">
               Frequently Asked Questions
             </h2>
           </div>

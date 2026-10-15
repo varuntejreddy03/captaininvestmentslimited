@@ -19,7 +19,7 @@ export function ServicesOverview() {
             <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
             <span>Core Capabilities in Zambia</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase tracking-normal">
             Our Primary Services
           </h2>
           <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
@@ -44,7 +44,7 @@ export function ServicesOverview() {
                 </span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-sky-300 transition-colors">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-sky-300 transition-colors">
                 Borehole Drilling
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
@@ -95,7 +95,7 @@ export function ServicesOverview() {
                 </span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-amber-400 transition-colors">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">
                 Earth Movers for Hire
               </h3>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
@@ -116,7 +116,7 @@ export function ServicesOverview() {
             <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
               <Link
                 href="/services/equipment-hire"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
               >
                 <span>Hire Terms & Rates</span>
                 <ArrowRight className="w-4 h-4" />

@@ -39,7 +39,7 @@ export function FleetShowcase() {
               <Truck className="w-3.5 h-3.5" />
               <span>Plant & Equipment for Hire</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase tracking-normal">
               Our Heavy Machinery Fleet
             </h2>
             <p className="text-sm sm:text-base text-slate-300 mt-2 max-w-xl">

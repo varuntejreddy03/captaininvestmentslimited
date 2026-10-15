@@ -172,7 +172,7 @@ export function Hero3D() {
 
             {/* Main Headline with Real Space Grotesk Styling */}
             <div className="space-y-3">
-              <h1 className="font-heading text-4xl sm:text-6xl xl:text-7xl font-black uppercase tracking-tight text-white leading-[1.04]">
+              <h1 className="font-heading text-4xl sm:text-6xl xl:text-7xl font-bold uppercase tracking-normal text-white leading-[1.04]">
                 We Drill. <br />
                 <span className="text-amber-400">We Dig.</span> <br />
                 We Deliver.
@@ -198,7 +198,7 @@ export function Hero3D() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
               <Link
                 href="/contact"
-                className="group px-8 py-4 rounded-xl font-heading font-black text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all flex items-center justify-center gap-2.5 active:scale-95"
+                className="group px-8 py-4 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all flex items-center justify-center gap-2.5 active:scale-95"
               >
                 <span>Get a Free Quote</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

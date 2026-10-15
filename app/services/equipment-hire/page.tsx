@@ -23,7 +23,7 @@ export default function EquipmentHirePage() {
               <Tractor className="w-3.5 h-3.5" />
               <span>Heavy Plant Hire &bull; Lusaka & Zambia</span>
             </div>
-            <h1 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white">
+            <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-normal text-white">
               Earth Movers for Hire <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
                 Tough, Reliable, Site-Ready
@@ -36,7 +36,7 @@ export default function EquipmentHirePage() {
             <div className="flex flex-wrap items-center gap-4 pt-3">
               <Link
                 href="/fleet"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all"
               >
                 <span>Browse Fleet of 8 Machines</span>
                 <ArrowRight className="w-4 h-4" />
@@ -61,7 +61,7 @@ export default function EquipmentHirePage() {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 block mb-2">
             Flexible Commercial Contract Options
           </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase">
             Wet Hire vs. Dry Hire
           </h2>
           <p className="text-sm sm:text-base text-slate-300 mt-2">
@@ -76,7 +76,7 @@ export default function EquipmentHirePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-400/15 text-amber-400 border border-amber-400/30">
                 <span>Option A &bull; Turnkey Execution</span>
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">
                 Wet Hire Package
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -106,7 +106,7 @@ export default function EquipmentHirePage() {
             <div className="pt-8 mt-6">
               <Link
                 href="/contact"
-                className="w-full py-3 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-black text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
+                className="w-full py-3 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition-all"
               >
                 <span>Request Wet Hire Quote</span>
                 <ArrowRight className="w-4 h-4" />
@@ -120,7 +120,7 @@ export default function EquipmentHirePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-sky-500/10 text-sky-400 border border-sky-500/20">
                 <span>Option B &bull; Long-Term Contractor Spec</span>
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">
                 Dry Hire Package
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -178,7 +178,7 @@ export default function EquipmentHirePage() {
                 <Truck className="w-4 h-4 text-amber-400" />
                 <span>Heavy Plant Mobilization</span>
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white">
                 Dedicated Multi-Axle Lowbed Transport
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

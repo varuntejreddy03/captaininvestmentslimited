@@ -22,7 +22,7 @@ export default function NotFound() {
           <span className="font-mono text-xs text-amber-400 font-bold uppercase tracking-widest">
             404 &bull; Page Not Located
           </span>
-          <h1 className="font-heading text-3xl sm:text-4xl font-black text-white">
+          <h1 className="font-heading text-3xl sm:text-4xl font-bold text-white">
             Off-Route Excavation
           </h1>
           <p className="text-sm text-slate-300">

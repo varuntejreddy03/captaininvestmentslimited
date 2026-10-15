@@ -24,7 +24,7 @@ export function ContactSection({ initialService }: ContactSectionProps) {
             <span className="w-2 h-2 rounded-full bg-amber-400" />
             <span>Lusaka Dispatch & Support Desk</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase tracking-normal">
             Connect With Our Engineers
           </h2>
           <p className="text-sm sm:text-base text-slate-300 mt-2">
