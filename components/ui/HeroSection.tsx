@@ -55,12 +55,13 @@ export function HeroSection() {
 
             {/* Main Headline (matching reference 'Where every bite tells a Story') */}
             <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.06]">
-              We Drill. We Dig. <br />
-              We <span className="text-amber-400 font-extrabold drop-shadow-[0_0_30px_rgba(245,158,11,0.5)]">Deliver</span>.
+              <span className="text-white">We Drill. We Dig.</span> <br />
+              <span className="text-white">We </span>
+              <span className="text-amber-400 font-extrabold drop-shadow-[0_0_30px_rgba(245,158,11,0.5)]">Deliver</span>.
             </h1>
 
-            {/* Refined Italic Description (matching reference 'Experience the rich heritage...') */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 italic font-serif max-w-xl leading-relaxed">
+            {/* Refined Description with high contrast */}
+            <p className="text-base sm:text-lg text-slate-100 font-medium max-w-xl leading-relaxed">
               Commercial borehole drilling for farms and mining, exploratory soil core sampling, and certified heavy earth-moving equipment hire across all 10 provinces of Zambia.
             </p>
 
@@ -76,9 +77,9 @@ export function HeroSection() {
 
               <Link
                 href="/fleet"
-                className="px-7 py-3.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-white bg-black/40 hover:bg-black/60 border border-white/20 hover:border-amber-400/60 backdrop-blur-md transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                className="px-7 py-3.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-white hover:text-amber-300 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-amber-400/60 backdrop-blur-md transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95 shadow-md"
               >
-                <span>Browse 11 Machines</span>
+                <span className="text-white">Browse 11 Machines</span>
               </Link>
             </div>
 
