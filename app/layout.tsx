@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { Footer } from '@/components/ui/Footer';
 import { MobileStickyBar } from '@/components/ui/MobileStickyBar';
+import { FloatingSocialBar } from '@/components/ui/FloatingSocialBar';
 import { Preloader } from '@/components/ui/Preloader';
 import { SmoothScroll } from '@/components/ui/SmoothScroll';
 import { BUSINESS_INFO } from '@/lib/constants';
@@ -107,7 +108,7 @@ const jsonLd = {
       closes: '17:00',
     },
   ],
-  sameAs: [BUSINESS_INFO.facebook],
+  sameAs: [BUSINESS_INFO.facebook, BUSINESS_INFO.instagram],
   priceRange: '$$',
   makesOffer: [
     {
@@ -146,6 +147,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Preloader />
           <Navbar />
+          <FloatingSocialBar />
           <main className="min-h-screen">
             {children}
           </main>

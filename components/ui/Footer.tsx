@@ -7,8 +7,8 @@ import { Phone, Mail, MapPin, ExternalLink, ShieldCheck, ArrowUpRight } from 'lu
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#050811] text-white border-t border-white/10 overflow-hidden">
-      {/* Subtle excavator track top accent */}
+    <footer className="relative bg-[#070D1E] text-white border-t border-slate-800 overflow-hidden">
+      {/* Track pattern top accent */}
       <div className="h-1.5 w-full track-pattern bg-amber-400/20" />
 
       {/* Background radial glow */}
@@ -16,28 +16,39 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          
           {/* Column 1: Brand & Identity */}
           <div className="space-y-4">
-            <BrandLogo size="lg" />
+            <BrandLogo size="lg" invert />
             <p className="text-sm text-slate-300 leading-relaxed">
-              Lusaka&apos;s trusted specialists in commercial and residential borehole drilling, precision earth-moving, and heavy plant equipment hire across Zambia.
+              Zambia&apos;s trusted specialists in commercial and farm borehole drilling, mining soil core sampling, and certified heavy earth-moving equipment hire. Headquartered in Lusaka with operations and plant mobilization across all 10 provinces of Zambia.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <span className="text-xs uppercase tracking-wider text-slate-400 font-mono block mb-1.5">
                 Current Office Status
               </span>
               <LiveHoursBadge showTime />
             </div>
 
-            <div className="pt-2">
+            <div className="flex flex-wrap items-center gap-2 pt-2">
               <a
                 href={BUSINESS_INFO.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-semibold transition-colors"
               >
-                <span>Follow on Facebook</span>
+                <span>Facebook</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={BUSINESS_INFO.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-600/20 hover:bg-pink-600/30 text-pink-300 border border-pink-500/30 text-xs font-semibold transition-colors"
+              >
+                <span>Instagram</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -47,7 +58,7 @@ export function Footer() {
           <div>
             <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-2">
               <span className="w-1.5 h-3 bg-amber-400 rounded-sm" />
-              Services in Zambia
+              Services Across Zambia
             </h3>
             <ul className="space-y-3 text-sm">
               {SERVICES.map((srv) => (
@@ -63,34 +74,34 @@ export function Footer() {
               ))}
               <li>
                 <Link
-                  href="/services/borehole-drilling#survey"
+                  href="/services/borehole-drilling"
                   className="text-slate-400 hover:text-white text-xs pl-5 block transition-colors"
                 >
-                  Hydrogeological Ground Surveys
+                  Commercial Farm & Mining Boreholes
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/borehole-drilling#solar-pumps"
+                  href="/services/borehole-drilling"
                   className="text-slate-400 hover:text-white text-xs pl-5 block transition-colors"
                 >
-                  Solar Submersible Pumping Systems
+                  Mining Soil & Geological Core Sampling
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services/equipment-hire#wet-dry"
+                  href="/services/borehole-drilling"
                   className="text-slate-400 hover:text-white text-xs pl-5 block transition-colors"
                 >
-                  Wet & Dry Plant Hire Terms
+                  Elevated Tank Stands & Solar Pumps
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/fleet"
+                  href="/services/equipment-hire"
                   className="text-slate-400 hover:text-white text-xs pl-5 block transition-colors"
                 >
-                  Lowbed Haulage & Mobilization
+                  Certified Operators Included (Wet & Dry)
                 </Link>
               </li>
             </ul>
@@ -100,7 +111,7 @@ export function Footer() {
           <div>
             <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-2">
               <span className="w-1.5 h-3 bg-amber-400 rounded-sm" />
-              Heavy Machinery
+              Heavy Fleet (11 Units)
             </h3>
             <ul className="space-y-2.5 text-sm">
               {FLEET_MACHINES.slice(0, 5).map((machine) => (
@@ -109,8 +120,8 @@ export function Footer() {
                     href={`/fleet#${machine.id}`}
                     className="text-slate-300 hover:text-white transition-colors flex items-center justify-between text-xs group"
                   >
-                    <span className="group-hover:text-amber-400 transition-colors">{machine.name}</span>
-                    <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-white/5">
+                    <span className="group-hover:text-amber-400 transition-colors truncate max-w-[180px]">{machine.name}</span>
+                    <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 rounded bg-white/5 shrink-0 ml-1">
                       {machine.category}
                     </span>
                   </Link>
@@ -121,7 +132,7 @@ export function Footer() {
                   href="/fleet"
                   className="text-sky-400 hover:text-sky-300 text-xs font-semibold inline-flex items-center gap-1"
                 >
-                  <span>View All 8 Machines in Fleet</span>
+                  <span>View All 11 Machines & Rigs</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -138,8 +149,8 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium text-white">{BUSINESS_INFO.address.full}</p>
-                  <p className="text-xs text-slate-400">Serving Lusaka Province & Countrywide</p>
+                  <p className="font-medium text-white">Lusaka Headquarters</p>
+                  <p className="text-xs text-slate-400">Serving All 10 Provinces Across Zambia</p>
                 </div>
               </div>
 
@@ -187,12 +198,12 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
-            <span>Lusaka, Zambia</span>
-            <span>&bull;</span>
+            <span>Nationwide Zambia</span>
+            <span>•</span>
             <Link href="/contact" className="hover:text-amber-400 transition-colors">
               Dispatch Desk
             </Link>
-            <span>&bull;</span>
+            <span>•</span>
             <a href={BUSINESS_INFO.whatsappLink} className="hover:text-amber-400 transition-colors">
               Direct WhatsApp
             </a>

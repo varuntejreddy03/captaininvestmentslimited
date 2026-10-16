@@ -5,17 +5,17 @@
   --navy-dark: #05103B;
   --ocean: #0A5BB5;
   --ocean-dark: #074386;
-  --sky: #3B8FE0;
+  --sky: #0284C7;
   --sky-light: #EBF4FE;
-  --orange: #F59E0B;
-  --orange-hover: #D97706;
-  --black: #0B0B0B;
-  --card-dark: #0D1630;
-  --card-darker: #070D1E;
-  --border-dark: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.14);
+  --orange: #D97706;
+  --orange-light: #F59E0B;
+  --black: #0F172A;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --bg-main: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --border-subtle: #E2E8F0;
   --white: #FFFFFF;
-  --offwhite: #F5F7FA;
 }
 
 @theme {
@@ -23,13 +23,13 @@
   --color-brand-navy-dark: #05103B;
   --color-brand-ocean: #0A5BB5;
   --color-brand-ocean-dark: #074386;
-  --color-brand-sky: #3B8FE0;
-  --color-brand-orange: #F59E0B;
-  --color-brand-orange-hover: #D97706;
-  --color-brand-black: #0B0B0B;
-  --color-brand-card: #0D1630;
-  --color-brand-carder: #070D1E;
-  --color-brand-offwhite: #F5F7FA;
+  --color-brand-sky: #0284C7;
+  --color-brand-orange: #D97706;
+  --color-brand-orange-hover: #B45309;
+  --color-brand-black: #0F172A;
+  --color-brand-card: #FFFFFF;
+  --color-brand-carder: #F8FAFC;
+  --color-brand-offwhite: #F8FAFC;
 
   --font-heading: var(--font-space-grotesk), 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -39,56 +39,54 @@
 /* Base typography guarantees */
 html, body {
   font-family: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #070D1E;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0F172A;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-html { scroll-padding-top: 88px; }
+html { 
+  scroll-padding-top: 88px; 
+}
 
 body {
   overflow-x: clip;
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(ellipse 90% 700px at 50% 0, #0A1F6B 0%, rgba(10, 31, 107, 0) 100%) no-repeat, #070D1E;
+  background-color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-space-grotesk), 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   font-weight: 700;
+  color: #0F172A;
 }
 
-/* Custom Glassmorphism */
+/* Modern Clean Light Panels */
 .glass-panel {
-  background: rgba(13, 22, 48, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
 }
 
 .glass-panel-glow {
-  background: rgba(10, 31, 107, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(59, 143, 224, 0.28);
-  box-shadow: 0 0 35px rgba(10, 91, 181, 0.2);
+  background: #FFFFFF;
+  border: 1.5px solid #0A5BB5;
+  box-shadow: 0 10px 30px -4px rgba(10, 91, 181, 0.12);
 }
 
 /* Excavator Track Motif Texture */
 .track-pattern {
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(245, 158, 11, 0.05) 0px,
-    rgba(245, 158, 11, 0.05) 12px,
+    rgba(10, 31, 107, 0.04) 0px,
+    rgba(10, 31, 107, 0.04) 12px,
     transparent 12px,
     transparent 24px
   );
@@ -99,42 +97,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0A5BB5;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #F59E0B;
+  background: #94A3B8;
 }
 
-/* Reduced Motion Override */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
   }
-}
-
-/* Hide scrollbars on swipeable rows */
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-
-/* Keep page content clear of the fixed mobile action bar */
-@media (max-width: 767px) {
-  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
-}
-
-/* Backdrop blur is the biggest scroll-jank source on phones: use solid panels there */
-@media (max-width: 1023px) {
-  .glass-panel, .glass-panel-light, .glass-panel-glow {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-  .glass-panel { background: rgba(13, 22, 48, 0.92); }
-  .glass-panel-light { background: rgba(255, 255, 255, 0.06); }
-  .glass-panel-glow { background: rgba(10, 31, 107, 0.55); }
 }

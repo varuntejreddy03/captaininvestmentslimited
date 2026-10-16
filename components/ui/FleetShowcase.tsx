@@ -10,7 +10,7 @@ export function FleetShowcase() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['All', 'Excavation', 'Earth Moving', 'Compaction', 'Grading', 'Haulage'];
+  const categories = ['All', 'Excavation', 'Earth Moving', 'Haulage', 'Drilling', 'Compaction', 'Grading'];
 
   const filteredMachines =
     selectedCategory === 'All'
@@ -27,23 +27,23 @@ export function FleetShowcase() {
   };
 
   return (
-    <section className="relative py-16 sm:py-24 bg-[#070D1E] overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
       {/* Background Track Accent */}
-      <div className="absolute inset-0 track-pattern opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 track-pattern opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header with Navigation Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-3">
-              <Truck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-300 text-amber-900 mb-3">
+              <Truck className="w-3.5 h-3.5 text-amber-600" />
               <span>Plant & Equipment for Hire</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white uppercase tracking-normal">
+            <h2 className="font-heading text-3xl sm:text-5xl font-bold text-slate-900 uppercase tracking-normal">
               Our Heavy Machinery Fleet
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 mt-2 max-w-xl">
-              Inspect our 8 specialized machines available for wet or dry hire across Zambia with rapid lowbed deployment.
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl">
+              Inspect our full 11-unit specialized machinery fleet available for wet or dry hire across Zambia with rapid lowbed deployment.
             </p>
           </div>
 
@@ -51,21 +51,21 @@ export function FleetShowcase() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scroll('left')}
-              className="p-3 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-95 text-white border border-white/10 transition-all cursor-pointer"
+              className="p-3 rounded-2xl bg-white hover:bg-slate-100 active:scale-95 text-slate-800 border border-slate-200 shadow-sm transition-all cursor-pointer"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-3 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-95 text-white border border-white/10 transition-all cursor-pointer"
+              className="p-3 rounded-2xl bg-white hover:bg-slate-100 active:scale-95 text-slate-800 border border-slate-200 shadow-sm transition-all cursor-pointer"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <Link
               href="/fleet"
-              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0A5BB5] hover:bg-[#0A1F6B] text-white text-xs font-bold tracking-wider uppercase transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0A5BB5] hover:bg-[#0A1F6B] text-white text-xs font-bold tracking-wider uppercase shadow-md transition-colors"
             >
               <span>Full Specs</span>
               <ArrowRight className="w-4 h-4" />
@@ -81,8 +81,8 @@ export function FleetShowcase() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-amber-400 text-slate-950 font-black shadow-[0_0_15px_rgba(245,158,11,0.4)]'
-                  : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10'
+                  ? 'bg-amber-400 text-slate-950 font-black shadow-sm'
+                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-xs'
               }`}
             >
               {cat}
@@ -106,9 +106,9 @@ export function FleetShowcase() {
         </div>
 
         {/* Bottom helper */}
-        <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 font-mono">
-          <span>&larr; Swipe to explore all 8 machines &rarr;</span>
-          <Link href="/fleet" className="text-amber-400 hover:underline inline-flex items-center gap-1">
+        <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 font-mono">
+          <span>&larr; Swipe or use arrows to explore all 11 machines &rarr;</span>
+          <Link href="/fleet" className="text-blue-700 font-semibold hover:underline inline-flex items-center gap-1">
             <span>View technical dimensions & hire terms</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>

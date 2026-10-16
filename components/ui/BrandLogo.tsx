@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -6,61 +8,57 @@ interface BrandLogoProps {
   variant?: 'full' | 'mark' | 'horizontal';
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  invert?: boolean;
 }
 
-export function BrandLogo({ variant = 'horizontal', className = '', size = 'md' }: BrandLogoProps) {
+export function BrandLogo({
+  variant = 'horizontal',
+  className = '',
+  size = 'md',
+  invert = false,
+}: BrandLogoProps) {
   const dimensions = {
-    sm: { img: 44, text: 'text-base', sub: 'text-[9px]' },
-    md: { img: 56, text: 'text-xl', sub: 'text-[10px]' },
-    lg: { img: 72, text: 'text-2xl', sub: 'text-xs' },
+    sm: { img: 42, textH: 34, textW: 112 },
+    md: { img: 52, textH: 42, textW: 138 },
+    lg: { img: 68, textH: 54, textW: 178 },
   }[size];
 
   return (
     <Link
       href="/"
-      className={`group inline-flex items-center gap-3.5 select-none transition-transform duration-200 hover:scale-[1.02] ${className}`}
+      className={`group inline-flex items-center gap-3 select-none transition-transform duration-200 hover:opacity-95 ${className}`}
       aria-label="Captain Investments Limited - Home"
     >
-      {/* Brand Emblem Mark - Clean transparent floating icon without boxed card */}
+      {/* Brand Emblem Mark */}
       <div className="relative shrink-0 flex items-center justify-center">
         <Image
           src="/images/logo-mark.png"
           alt="Captain Investments Emblem"
           width={dimensions.img}
           height={dimensions.img}
-          className="object-contain filter drop-shadow-[0_4px_12px_rgba(10,91,181,0.5)] group-hover:scale-105 transition-transform duration-300"
+          className="object-contain filter drop-shadow-[0_2px_8px_rgba(10,91,181,0.25)] group-hover:scale-105 transition-transform duration-300"
           priority
         />
       </div>
 
+      {/* Exact Typography Graphic matching the client's official logo font */}
       {variant !== 'mark' && (
-        <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-1 min-[380px]:gap-1.5 sm:gap-2">
-            <span className="font-heading text-base min-[380px]:text-lg sm:text-xl font-bold tracking-normal text-white group-hover:text-amber-400 transition-colors uppercase">
-              Captain
-            </span>
-            <span className="font-heading text-base min-[380px]:text-lg sm:text-xl font-bold tracking-normal text-amber-400 uppercase">
-              Investments
-            </span>
-          </div>
-          <div className="flex items-center gap-2 mt-0.5">
-            <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.18em] text-slate-300 uppercase font-semibold">
-              Limited
-            </span>
-            <span className="w-1 h-1 rounded-full bg-amber-400" />
-            <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.18em] text-sky-400 uppercase font-semibold">
-              Lusaka, Zambia
-            </span>
-          </div>
+        <div className="relative shrink-0 flex items-center">
+          <Image
+            src={invert ? '/images/logo-text-white.png' : '/images/logo-text-dark.png'}
+            alt="Captain Investments Limited"
+            width={dimensions.textW}
+            height={dimensions.textH}
+            className="w-auto object-contain transition-all"
+            style={{ height: `${dimensions.textH}px` }}
+            priority
+          />
         </div>
       )}
     </Link>
   );
 }
 
-/**
- * BrandMotifSVG exported for lightweight vector renderings
- */
 export function BrandMotifSVG({ className = 'w-16 h-16' }: { className?: string }) {
   return (
     <svg

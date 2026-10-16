@@ -56,64 +56,64 @@ export function FleetTiltCard({ machine }: FleetTiltCardProps) {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative flex flex-col justify-between rounded-3xl glass-panel p-6 border border-white/10 hover:border-amber-400/40 shadow-xl hover:shadow-[0_15px_40px_rgba(10,91,181,0.25)] transition-shadow duration-300 overflow-hidden"
+      className="group relative flex flex-col justify-between rounded-3xl bg-white p-6 border border-slate-200 hover:border-amber-400 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
     >
       {/* 3D Track Accent Pattern on Top Card Rim */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 track-pattern bg-amber-400/30 group-hover:bg-amber-400 transition-colors" />
+      <div className="absolute top-0 left-0 right-0 h-1.5 track-pattern bg-amber-400/40 group-hover:bg-amber-500 transition-colors" />
 
       {/* Top Details & 3D Rotating Gear/Track Accent */}
       <div>
         <div className="flex items-center justify-between gap-3 mb-4">
-          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 text-amber-400 border border-white/10">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-50 text-amber-900 border border-amber-200">
             {machine.category}
           </span>
 
           {/* 3D Animated Sprocket / Wheel Accent */}
           <div
-            className={`w-7 h-7 rounded-full border-2 border-dashed border-sky-400/60 flex items-center justify-center transition-transform duration-700 ${
-              isHovered ? 'rotate-180 scale-110 border-amber-400' : ''
+            className={`w-7 h-7 rounded-full border-2 border-dashed border-blue-400 flex items-center justify-center transition-transform duration-700 ${
+              isHovered ? 'rotate-180 scale-110 border-amber-500' : ''
             }`}
           >
-            <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
           </div>
         </div>
 
         {/* Machine Image with Zoom on Hover */}
-        <div className="relative w-full h-52 sm:h-56 rounded-2xl overflow-hidden bg-black/40 border border-white/10 mb-5">
+        <div className="relative w-full h-52 sm:h-56 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 mb-5 shadow-inner">
           <Image
             src={machine.image}
-            alt={`${machine.name} - ${machine.model} hired by Captain Investments Limited Lusaka`}
+            alt={`${machine.name} - ${machine.model} hired by Captain Investments Limited Zambia`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070D1E] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
 
-          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono text-white/90 bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">
-            <span>{machine.model}</span>
-            <span className="text-amber-400 flex items-center gap-1 font-semibold">
-              <Sparkles className="w-3 h-3" />
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono text-white bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/20">
+            <span className="font-semibold">{machine.model}</span>
+            <span className="text-amber-300 flex items-center gap-1 font-bold text-[11px]">
+              <Sparkles className="w-3 h-3 text-amber-400" />
               Verified Fleet
             </span>
           </div>
         </div>
 
         {/* Title & Description */}
-        <h3 className="font-heading text-xl sm:text-2xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2">
+        <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors mb-2">
           {machine.name}
         </h3>
-        <p className="text-xs sm:text-sm text-slate-300 line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mb-4 leading-relaxed">
           {machine.description}
         </p>
 
         {/* Machine Technical Specifications Grid */}
-        <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-white/5 border border-white/5 mb-5 text-xs font-mono">
+        <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-slate-50 border border-slate-200 mb-5 text-xs font-mono">
           {machine.specs.map((spec, i) => (
             <div key={i} className="flex flex-col">
-              <span className="text-[10px] text-slate-400 uppercase tracking-tight">
+              <span className="text-[10px] text-slate-500 uppercase tracking-tight font-medium">
                 {spec.label}
               </span>
-              <span className="font-semibold text-white truncate">
+              <span className="font-bold text-slate-800 truncate">
                 {spec.value}
               </span>
             </div>
@@ -122,16 +122,16 @@ export function FleetTiltCard({ machine }: FleetTiltCardProps) {
 
         {/* Ideal Project Applications */}
         <div className="space-y-1 mb-6">
-          <span className="text-[11px] font-mono text-slate-400 block mb-1">
+          <span className="text-[11px] font-mono text-slate-500 block mb-1 font-semibold uppercase tracking-wider">
             Application Strengths:
           </span>
           <div className="flex flex-wrap gap-1.5">
             {machine.idealFor.map((app, idx) => (
               <span
                 key={idx}
-                className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/5"
+                className="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-medium"
               >
-                <Check className="w-2.5 h-2.5 text-emerald-400" />
+                <Check className="w-2.5 h-2.5 text-emerald-600" />
                 <span>{app}</span>
               </span>
             ))}
@@ -144,7 +144,7 @@ export function FleetTiltCard({ machine }: FleetTiltCardProps) {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full py-3 px-4 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] transition-all flex items-center justify-center gap-2 group-hover:scale-[1.02] active:scale-95"
+        className="w-full py-3 px-4 rounded-xl font-heading font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group-hover:scale-[1.01] active:scale-95"
       >
         <MessageSquare className="w-4 h-4 text-slate-950" />
         <span>Request This Machine</span>

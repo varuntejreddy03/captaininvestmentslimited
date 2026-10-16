@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { BrandLogo } from './BrandLogo';
 import { LiveHoursBadge } from './LiveHoursBadge';
 import { BUSINESS_INFO, NAV_LINKS } from '@/lib/constants';
-import { Phone, MessageSquare, Menu, X, ChevronRight } from 'lucide-react';
+import { Phone, Menu, X, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function Navbar() {
@@ -16,15 +16,21 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
     return () => {
       document.body.style.overflow = '';
     };
@@ -40,18 +46,18 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#070D1E]/95 backdrop-blur-md border-b border-white/10 shadow-xl shadow-black/40 py-3'
-            : 'bg-gradient-to-b from-[#070D1E]/95 via-[#070D1E]/70 to-transparent py-4'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm py-2.5'
+            : 'bg-white/85 backdrop-blur-md border-b border-slate-100 py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
-            {/* Logo: Clean transparent mark + bold typography */}
+            {/* Logo: Official brand lockup */}
             <BrandLogo size="md" />
 
             {/* Desktop Navigation Links */}
             <nav
-              className="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md"
+              className="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-slate-100/90 border border-slate-200"
               aria-label="Primary"
             >
               {NAV_LINKS.map((link) => {
@@ -61,14 +67,14 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`relative px-4 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 ${
-                      isActive ? 'text-slate-950' : 'text-slate-300 hover:text-white'
+                    className={`relative px-4 py-2 rounded-full text-[13px] font-semibold whitespace-nowrap transition-colors duration-200 ${
+                      isActive ? 'text-slate-950 font-bold' : 'text-slate-600 hover:text-slate-950'
                     }`}
                   >
                     {isActive && (
                       <motion.span
                         layoutId="nav-active-pill"
-                        className="absolute inset-0 rounded-full bg-gradient-to-b from-amber-300 to-amber-500 shadow-[0_4px_16px_-4px_rgba(245,158,11,0.6)]"
+                        className="absolute inset-0 rounded-full bg-white shadow-sm border border-slate-200/80"
                         transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                       />
                     )}
@@ -79,24 +85,24 @@ export function Navbar() {
             </nav>
 
             {/* Right Action Area */}
-            <div className="hidden lg:flex items-center gap-2.5">
+            <div className="hidden lg:flex items-center gap-3">
               <div className="hidden xl:block">
                 <LiveHoursBadge />
               </div>
 
               <a
                 href={BUSINESS_INFO.telLink}
-                className="flex items-center justify-center gap-2 h-10 px-3 xl:px-4 rounded-full text-xs font-semibold text-slate-100 bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 hover:border-white/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70"
+                className="flex items-center justify-center gap-2 h-10 px-3.5 xl:px-4 rounded-full text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200/80 border border-slate-200/90 transition-colors shadow-xs"
                 title={`Call ${BUSINESS_INFO.phone}`}
                 aria-label={`Call ${BUSINESS_INFO.phone}`}
               >
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span className="hidden xl:inline font-mono whitespace-nowrap">{BUSINESS_INFO.phone}</span>
+                <Phone className="w-3.5 h-3.5 text-amber-500" />
+                <span className="font-mono whitespace-nowrap">{BUSINESS_INFO.phone}</span>
               </a>
 
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-1.5 h-10 px-5 rounded-full text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-b from-amber-300 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-[0_6px_20px_-6px_rgba(245,158,11,0.7)] transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                className="group inline-flex items-center gap-1.5 h-10 px-5 rounded-full text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 shadow-[0_4px_14px_-2px_rgba(245,158,11,0.5)] transition-all active:scale-95"
               >
                 <span>Get Quote</span>
                 <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -112,8 +118,8 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70"
-                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 transition-colors"
+                aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
                 aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -128,80 +134,70 @@ export function Navbar() {
         {mobileMenuOpen && (
           <>
             <motion.div
-              key="scrim"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 z-30 lg:hidden bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 z-30 bg-black/40 backdrop-blur-xs lg:hidden"
+              aria-hidden="true"
             />
+
             <motion.div
-              key="drawer"
               initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-x-3 top-[76px] z-40 lg:hidden max-h-[calc(100dvh-92px)] overflow-y-auto rounded-3xl bg-[#0a1226]/95 backdrop-blur-xl border border-white/15 shadow-2xl p-4"
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="fixed inset-x-0 top-[64px] z-30 lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-xl px-4 py-5"
             >
-              <div className="min-[500px]:hidden flex items-center justify-between px-1 pb-3 mb-2 border-b border-white/10">
-                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">Lusaka office</span>
-                <LiveHoursBadge showTime />
-              </div>
-              <nav className="flex flex-col gap-1" aria-label="Mobile">
-                {NAV_LINKS.map((link, i) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: -12 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.04 * i + 0.05, duration: 0.3 }}
-                    >
+              <div className="max-w-md mx-auto space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                  <span className="text-[11px] font-mono text-slate-500 uppercase tracking-widest">
+                    Zambia Operating Hours
+                  </span>
+                  <LiveHoursBadge showTime />
+                </div>
+
+                <nav className="flex flex-col gap-1" aria-label="Mobile">
+                  {NAV_LINKS.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
                       <Link
+                        key={link.href}
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
                         aria-current={isActive ? 'page' : undefined}
-                        className={`flex items-center justify-between h-12 px-4 rounded-2xl text-[15px] font-semibold transition-colors ${
+                        className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                           isActive
-                            ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950'
-                            : 'text-slate-100 hover:bg-white/[0.07]'
+                            ? 'bg-amber-400/20 text-slate-950 border border-amber-400/40'
+                            : 'text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         <span>{link.label}</span>
-                        <ChevronRight className={`w-4 h-4 ${isActive ? 'text-slate-900' : 'text-slate-500'}`} />
+                        <ChevronRight className="w-4 h-4 text-slate-400" />
                       </Link>
-                    </motion.div>
-                  );
-                })}
-              </nav>
+                    );
+                  })}
+                </nav>
 
-              <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-2 gap-2.5">
-                <a
-                  href={BUSINESS_INFO.telLink}
-                  className="flex items-center justify-center gap-2 h-12 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-amber-400" />
-                  <span>Call</span>
-                </a>
-                <a
-                  href={BUSINESS_INFO.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 h-12 rounded-2xl bg-[#25D366] hover:bg-[#2fe074] text-slate-950 font-bold text-sm transition-colors"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp</span>
-                </a>
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="col-span-2 flex items-center justify-center gap-1.5 h-12 rounded-2xl bg-gradient-to-b from-amber-300 to-amber-500 text-slate-950 font-extrabold text-sm uppercase tracking-wider"
-                >
-                  <span>Get a Free Quote</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
+                <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-slate-100">
+                  <a
+                    href={BUSINESS_INFO.telLink}
+                    className="flex items-center justify-center gap-2 h-11 px-3 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 border border-slate-200"
+                  >
+                    <Phone className="w-4 h-4 text-amber-500" />
+                    <span>Call Now</span>
+                  </a>
+
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-1.5 h-11 px-3 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-950 bg-amber-400 shadow-sm"
+                  >
+                    <span>Get Quote</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
-              <p className="mt-3 text-center text-[11px] font-mono text-slate-500">{BUSINESS_INFO.phone}</p>
             </motion.div>
           </>
         )}

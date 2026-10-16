@@ -26,7 +26,7 @@ export function LiveHoursBadge({ showTime = false, className = '' }: LiveHoursBa
 
   if (!status) {
     return (
-      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap bg-white/5 border border-white/10 text-slate-300 animate-pulse ${className}`}>
+      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap bg-slate-100 border border-slate-200 text-slate-500 animate-pulse ${className}`}>
         <span className="w-2 h-2 rounded-full bg-slate-400" />
         <span>Checking Lusaka Office...</span>
       </div>
@@ -37,18 +37,18 @@ export function LiveHoursBadge({ showTime = false, className = '' }: LiveHoursBa
     <div
       className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-md transition-all duration-300 ${
         status.isOpen
-          ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]'
-          : 'bg-amber-500/15 border border-amber-500/30 text-amber-300'
+          ? 'bg-emerald-50 border border-emerald-300 text-emerald-800 shadow-sm'
+          : 'bg-amber-50 border border-amber-300 text-amber-900'
       } ${className}`}
       title={`Lusaka Local Time: ${status.currentLusakaTime}`}
     >
       <span className="relative flex h-2 w-2">
         {status.isOpen && (
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
         )}
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
-            status.isOpen ? 'bg-emerald-400' : 'bg-amber-400'
+            status.isOpen ? 'bg-emerald-600' : 'bg-amber-600'
           }`}
         />
       </span>
@@ -58,8 +58,8 @@ export function LiveHoursBadge({ showTime = false, className = '' }: LiveHoursBa
       </span>
 
       {showTime && (
-        <span className="hidden sm:inline-flex items-center gap-1 pl-1 border-l border-white/15 text-slate-300 font-mono text-[11px]">
-          <Clock className="w-3 h-3 text-slate-400" />
+        <span className="hidden sm:inline-flex items-center gap-1 pl-1.5 border-l border-slate-300 text-slate-600 font-mono text-[11px]">
+          <Clock className="w-3 h-3 text-slate-500" />
           {status.currentLusakaTime}
         </span>
       )}
