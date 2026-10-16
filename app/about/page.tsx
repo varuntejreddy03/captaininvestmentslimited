@@ -96,7 +96,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-mono">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">1</span>
-                <span>Heavy Excavators (21 Tons to 38 Tons)</span>
+                <span>Excavator with Rock Breaker (21 to 38 Tons)</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">2</span>
@@ -108,11 +108,11 @@ export default function AboutPage() {
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">4</span>
-                <span>Heavy Rotary DTH Borehole Drilling Rig</span>
+                <span>Truck-Mounted Rotary DTH Borehole Drilling Rig</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">5</span>
-                <span>Mining Soil Sampling & Exploration Rig</span>
+                <span>Excavator Mounting Rig (Soil Sampling & Exploration)</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">6</span>

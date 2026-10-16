@@ -39,11 +39,11 @@ export function StatsBar() {
               <span className="font-bold text-slate-900 uppercase tracking-wider mr-1">
                 11 Fleet Types:
               </span>
-              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">1. Excavators (21T–38T)</span>
+              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">1. Excavator with Rock Breaker (21T–38T)</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">2. 30T Tippers</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">3. 40T Tippers</span>
-              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">4. Borehole Rig</span>
-              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">5. Soil Sampling Rig</span>
+              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">4. Truck Borehole Rig</span>
+              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">5. Excavator Mounting Rig</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">6. 30T Dozer</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">7. 3.0 m³ Loader</span>
               <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">8. Motor Grader</span>

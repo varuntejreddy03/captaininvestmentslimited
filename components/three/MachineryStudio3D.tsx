@@ -61,16 +61,16 @@ function SiteGround({ y }: { y: number }) {
 
 // Complete reel featuring all 11 verified machinery units from the client fleet
 const ALL_FLEET_PHOTOS = [
-  { src: '/images/excavator-rocks.jpg', label: 'Heavy Hydraulic Excavators · 21T to 38T with Rock Breaker' },
+  { src: '/images/excavator-rocks.jpg', label: 'Excavator with Rock Breaker · 21T to 38T Heavy Demolition' },
   { src: '/images/tipper-single-stand-30t.jpg', label: 'Single Stance Tipper Truck · 30 Tonnes (6x4)' },
   { src: '/images/tipper-double-stand-40t.jpg', label: 'Double Stance Tipper Truck · 40 Tonnes (8x4)' },
-  { src: '/images/drilling-rig-truck.jpg', label: 'Heavy Rotary DTH Borehole Rig · Deep Farm & Mining Drilling' },
+  { src: '/images/drilling-rig-truck.jpg', label: 'Truck-Mounted Rotary DTH Borehole Rig · Deep Farm & Mining Drilling' },
   { src: '/images/wheel-loader.jpg', label: 'Front Wheel Loader · 3.0 m³ High-Cycle Bucket' },
   { src: '/images/bulldozer.jpg', label: 'Heavy Crawler Bulldozer · 30 Tonnes with Ripper' },
   { src: '/images/motor-grader.jpg', label: 'Heavy Articulated Motor Grader · 14-ft Moldboard' },
   { src: '/images/soil-compactor.jpg', label: 'Soil Compactor Roller · 11 Tonnes Vibratory' },
   { src: '/images/backhoe-sunset.jpg', label: 'Dual-Purpose Backhoe Loader · 4-in-1 Shovel & Arm' },
-  { src: '/images/two-backhoes.jpg', label: 'Truck-Mounted Rotary Rig · Soil Sampling & Commercial Boreholes' },
+  { src: '/images/excavator-mounting-rig.jpg', label: 'Excavator Mounting Rig · Soil Sampling & Rotary Exploration' },
   { src: '/images/excavator-lowbed.jpg', label: 'Multi-Axle Heavy Lowbed Rig · 50+ Tonnes Nationwide Delivery' },
 ];
 
@@ -292,8 +292,8 @@ export function MachineryStudio3D() {
                     className="object-cover opacity-80"
                   />
                   <div className="relative z-10 p-5 rounded-2xl bg-black/75 backdrop-blur-md border border-white/20">
-                    <h3 className="font-heading text-xl font-bold">Heavy Hydraulic Excavator</h3>
-                    <p className="text-sm text-slate-300 mt-1">21 to 38 Tonnes with Rock Breaker Boom</p>
+                    <h3 className="font-heading text-xl font-bold">Heavy Hydraulic Excavator with Rock Breaker</h3>
+                    <p className="text-sm text-slate-300 mt-1">21 to 38 Tonnes with Hydraulic Rock Breaker Hammer</p>
                   </div>
                 </div>
               )
