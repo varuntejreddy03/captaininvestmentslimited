@@ -15,10 +15,13 @@ import {
 } from 'lucide-react';
 
 export function HeroSection() {
-  const scrollToStudio = () => {
+  const scrollToStudio = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     const el = document.getElementById('studio');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.hash = 'studio';
     }
   };
 
@@ -157,8 +160,8 @@ export function HeroSection() {
 
             {/* Center / Lower Explore Trigger (matching reference Play Button) */}
             <div className="w-full max-w-sm pt-2 flex items-center justify-center lg:justify-end">
-              <button
-                type="button"
+              <a
+                href="#studio"
                 onClick={scrollToStudio}
                 className="group inline-flex items-center gap-3.5 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
               >
@@ -173,7 +176,7 @@ export function HeroSection() {
                     Interactive 3D model & 11-unit reel &darr;
                   </span>
                 </div>
-              </button>
+              </a>
             </div>
 
           </div>

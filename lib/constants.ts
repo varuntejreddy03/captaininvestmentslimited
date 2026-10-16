@@ -64,7 +64,7 @@ export const BUSINESS_INFO = {
  * Feature Flags
  */
 export const FEATURE_FLAGS = {
-  SHOW_STATS_COUNTERS: false,
+  SHOW_STATS_COUNTERS: true,
   ENABLE_3D_WEBGL: true,
   ENABLE_CUSTOM_CURSOR: false,
   ENABLE_SMOOTH_SCROLL: false,

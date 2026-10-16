@@ -164,7 +164,7 @@ export function MachineryStudio3D() {
   }, []);
 
   return (
-    <section className="py-20 bg-slate-50 border-y border-slate-200">
+    <section id="studio" className="py-20 bg-slate-50 border-y border-slate-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

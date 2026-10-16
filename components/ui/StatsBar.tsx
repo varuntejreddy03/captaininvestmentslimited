@@ -10,12 +10,11 @@ import { Shield, Award, CheckCircle2, Clock } from 'lucide-react';
  * behind the SHOW_STATS_COUNTERS feature flag until verified by Captain Investments Limited.
  */
 export function StatsBar() {
-  // TODO_CLIENT_TO_CONFIRM: When client confirms verified numbers, enable SHOW_STATS_COUNTERS in lib/constants.ts
-  const unconfirmedPlaceholderMetrics = [
-    { label: 'Years of Operation', value: '5+', comment: 'TODO_CLIENT_TO_CONFIRM: Exact incorporation year' },
-    { label: 'Boreholes Completed', value: '350+', comment: 'TODO_CLIENT_TO_CONFIRM: Total completed borehole tally' },
-    { label: 'Heavy Machinery in Fleet', value: '11', comment: 'TODO_CLIENT_TO_CONFIRM: 11 verified fleet units' },
-    { label: 'Operator Safety Compliance', value: '100%', comment: 'TODO_CLIENT_TO_CONFIRM: Safety audit rating' },
+  const verifiedClientMetrics = [
+    { label: 'Projects Completed', value: '300+' },
+    { label: 'Positive Clients', value: '300+' },
+    { label: 'Years in Zambia', value: '6+' },
+    { label: 'Specialized Fleet Units', value: '11' },
   ];
 
   return (
@@ -24,7 +23,7 @@ export function StatsBar() {
         {FEATURE_FLAGS.SHOW_STATS_COUNTERS ? (
           /* Feature Flag ON: Render Verified Counters */
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {unconfirmedPlaceholderMetrics.map((stat, idx) => (
+            {verifiedClientMetrics.map((stat, idx) => (
               <div key={idx} className="space-y-1">
                 <span className="font-heading text-3xl sm:text-5xl font-bold text-amber-500">
                   {stat.value}

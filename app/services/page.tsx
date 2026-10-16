@@ -81,8 +81,8 @@ export default function ServicesPage() {
 
               <div className="lg:col-span-5 relative h-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                 <Image
-                  src="/images/backhoe-sunset.jpg"
-                  alt="Borehole site operation Zambia"
+                  src="/images/drilling-rig-truck.jpg"
+                  alt="Captain Investments truck-mounted rotary borehole drilling rig in Zambia"
                   fill
                   className="object-cover"
                 />

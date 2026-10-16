@@ -35,6 +35,47 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Verified Proven Track Record: 300+ Projects, 300+ Positive Clients, 6+ Years Experience */}
+      <section className="relative z-20 -mt-8 sm:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl">
+          <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
+            <span className="font-heading text-4xl sm:text-6xl font-black text-amber-500 tracking-tight">
+              300+
+            </span>
+            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
+              Projects Completed
+            </span>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
+              Commercial farm boreholes, mining exploration sampling & major earthworks
+            </p>
+          </div>
+
+          <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
+            <span className="font-heading text-4xl sm:text-6xl font-black text-blue-700 tracking-tight">
+              300+
+            </span>
+            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
+              Positive Clients
+            </span>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
+              Trusted by commercial farm owners, mining operators & civil contractors
+            </p>
+          </div>
+
+          <div className="text-center p-4 flex flex-col justify-center">
+            <span className="font-heading text-4xl sm:text-6xl font-black text-emerald-600 tracking-tight">
+              6+
+            </span>
+            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
+              Years Experience in Zambia
+            </span>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
+              Over half a decade of engineering excellence and nationwide deployment
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Brand Motif Story */}
       <section className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
