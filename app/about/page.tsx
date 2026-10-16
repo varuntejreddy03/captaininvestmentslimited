@@ -35,43 +35,110 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Verified Proven Track Record: 300+ Projects, 300+ Positive Clients, 6+ Years Experience */}
+      {/* Verified Proven Track Record: 300+ Projects, 300+ Positive Clients, 6+ Years Experience, 11 Fleet Units */}
       <section className="relative z-20 -mt-8 sm:-mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl">
-          <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
-            <span className="font-heading text-4xl sm:text-6xl font-black text-amber-500 tracking-tight">
-              300+
-            </span>
-            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
-              Projects Completed
-            </span>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
-              Commercial farm boreholes, mining exploration sampling & major earthworks
-            </p>
+        <div className="p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
+              <span className="font-heading text-4xl sm:text-5xl font-black text-amber-500 tracking-tight">
+                300+
+              </span>
+              <span className="font-heading text-base sm:text-lg font-bold text-slate-900 mt-2">
+                Projects Completed
+              </span>
+              <p className="text-xs text-slate-500 mt-1">
+                Commercial boreholes, mining sampling & bulk earthworks
+              </p>
+            </div>
+
+            <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
+              <span className="font-heading text-4xl sm:text-5xl font-black text-blue-700 tracking-tight">
+                300+
+              </span>
+              <span className="font-heading text-base sm:text-lg font-bold text-slate-900 mt-2">
+                Positive Clients
+              </span>
+              <p className="text-xs text-slate-500 mt-1">
+                Farms, mining operators & civil contractors nationwide
+              </p>
+            </div>
+
+            <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
+              <span className="font-heading text-4xl sm:text-5xl font-black text-emerald-600 tracking-tight">
+                6+
+              </span>
+              <span className="font-heading text-base sm:text-lg font-bold text-slate-900 mt-2">
+                Years in Zambia
+              </span>
+              <p className="text-xs text-slate-500 mt-1">
+                Proven drilling & plant hire excellence across 10 provinces
+              </p>
+            </div>
+
+            <div className="text-center p-4 flex flex-col justify-center">
+              <span className="font-heading text-4xl sm:text-5xl font-black text-amber-600 tracking-tight">
+                11
+              </span>
+              <span className="font-heading text-base sm:text-lg font-bold text-slate-900 mt-2">
+                Specialized Fleet Units
+              </span>
+              <p className="text-xs text-slate-500 mt-1">
+                Modern certified earthmovers, haulage tippers & drill rigs
+              </p>
+            </div>
           </div>
 
-          <div className="text-center p-4 border-b sm:border-b-0 sm:border-r border-slate-100 flex flex-col justify-center">
-            <span className="font-heading text-4xl sm:text-6xl font-black text-blue-700 tracking-tight">
-              300+
+          {/* Explicit Listing of all 11 Specialized Fleet Types */}
+          <div className="pt-6 border-t border-slate-100">
+            <span className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider block mb-3 text-center sm:text-left">
+              The 11 Specialized Fleet Units in Operation:
             </span>
-            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
-              Positive Clients
-            </span>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
-              Trusted by commercial farm owners, mining operators & civil contractors
-            </p>
-          </div>
-
-          <div className="text-center p-4 flex flex-col justify-center">
-            <span className="font-heading text-4xl sm:text-6xl font-black text-emerald-600 tracking-tight">
-              6+
-            </span>
-            <span className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-2">
-              Years Experience in Zambia
-            </span>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xs mx-auto">
-              Over half a decade of engineering excellence and nationwide deployment
-            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-mono">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">1</span>
+                <span>Heavy Excavators (21 Tons to 38 Tons)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">2</span>
+                <span>Single Stance Tipper Trucks (30 Tons, 6x4)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">3</span>
+                <span>Double Stance Tipper Trucks (40 Tons, 8x4)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">4</span>
+                <span>Heavy Rotary DTH Borehole Drilling Rig</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">5</span>
+                <span>Mining Soil Sampling & Exploration Rig</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">6</span>
+                <span>Heavy Crawler Bulldozer (30 Tons with Ripper)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">7</span>
+                <span>Heavy Front Wheel Loader (3.0 m³ Bucket)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">8</span>
+                <span>Heavy Articulated Motor Grader (14-ft Moldboard)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">9</span>
+                <span>Vibratory Soil Compactor Roller (11 Tons)</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">10</span>
+                <span>Dual-Purpose 4-in-1 Backhoe Loader</span>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5 sm:col-span-2 lg:col-span-2">
+                <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">11</span>
+                <span>Multi-Axle Heavy Lowbed Transporter (50+ Tons Nationwide Delivery)</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
