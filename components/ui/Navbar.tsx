@@ -26,15 +26,18 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll and mark open state when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('mobile-menu-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('mobile-menu-open');
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('mobile-menu-open');
     };
   }, [mobileMenuOpen]);
 
@@ -46,7 +49,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           mobileMenuOpen
             ? 'bg-white border-b border-slate-200 py-3 text-slate-900 shadow-sm'
             : isHomeHero
@@ -167,7 +170,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 lg:hidden bg-white text-slate-900 flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto shadow-2xl"
+            className="fixed inset-0 z-45 lg:hidden bg-white text-slate-900 flex flex-col justify-between pt-24 pb-16 px-6 overflow-y-auto shadow-2xl"
           >
             <div className="space-y-6">
               <div className="border-b border-slate-200 pb-4 flex items-center justify-between">
@@ -200,7 +203,7 @@ export function Navbar() {
               </nav>
             </div>
 
-            <div className="pt-6 border-t border-slate-200 space-y-3">
+            <div className="pt-6 border-t border-slate-200 space-y-3 pb-10">
               <a
                 href={BUSINESS_INFO.telLink}
                 className="w-full py-3.5 px-4 rounded-xl font-heading font-bold text-sm !text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center justify-center gap-2 border border-slate-300 transition-colors shadow-xs"

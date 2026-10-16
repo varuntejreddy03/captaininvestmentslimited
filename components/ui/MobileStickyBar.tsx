@@ -7,7 +7,10 @@ import { BUSINESS_INFO } from '@/lib/constants';
 
 export function MobileStickyBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-200 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-5px_25px_rgba(0,0,0,0.08)]">
+    <div
+      id="mobile-sticky-bar"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-200 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-5px_25px_rgba(0,0,0,0.08)] transition-all duration-200"
+    >
       <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
         {/* Call Now */}
         <a

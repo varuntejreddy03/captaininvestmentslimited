@@ -113,3 +113,9 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     color: black;
   }
 }
+
+/* Hide bottom action bar when mobile menu drawer is open */
+body.mobile-menu-open #mobile-sticky-bar {
+  display: none !important;
+  pointer-events: none !important;
+}
