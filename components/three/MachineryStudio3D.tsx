@@ -64,13 +64,13 @@ const ALL_FLEET_PHOTOS = [
   { src: '/images/excavator-rocks.jpg', label: 'Heavy Hydraulic Excavators · 21T to 38T with Rock Breaker' },
   { src: '/images/tipper-single-stand-30t.jpg', label: 'Single Stance Tipper Truck · 30 Tonnes (6x4)' },
   { src: '/images/tipper-double-stand-40t.jpg', label: 'Double Stance Tipper Truck · 40 Tonnes (8x4)' },
-  { src: '/images/hero-banner.jpg', label: 'Heavy Rotary DTH Borehole Rig · Deep Farm & Mining Drilling' },
+  { src: '/images/drilling-rig-truck.jpg', label: 'Heavy Rotary DTH Borehole Rig · Deep Farm & Mining Drilling' },
   { src: '/images/wheel-loader.jpg', label: 'Front Wheel Loader · 3.0 m³ High-Cycle Bucket' },
   { src: '/images/bulldozer.jpg', label: 'Heavy Crawler Bulldozer · 30 Tonnes with Ripper' },
   { src: '/images/motor-grader.jpg', label: 'Heavy Articulated Motor Grader · 14-ft Moldboard' },
   { src: '/images/soil-compactor.jpg', label: 'Soil Compactor Roller · 11 Tonnes Vibratory' },
   { src: '/images/backhoe-sunset.jpg', label: 'Dual-Purpose Backhoe Loader · 4-in-1 Shovel & Arm' },
-  { src: '/images/two-backhoes.jpg', label: 'Paired Backhoe Loaders · Rapid Site Works' },
+  { src: '/images/two-backhoes.jpg', label: 'Truck-Mounted Rotary Rig · Soil Sampling & Commercial Boreholes' },
   { src: '/images/excavator-lowbed.jpg', label: 'Multi-Axle Heavy Lowbed Rig · 50+ Tonnes Nationwide Delivery' },
 ];
 

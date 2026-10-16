@@ -105,10 +105,10 @@ export default function EquipmentHirePage() {
             <div className="pt-8 mt-6">
               <Link
                 href="/contact"
-                className="w-full py-3.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2 transition-all active:scale-95"
+                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 !text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
               >
-                <span>Request Wet Hire Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="!text-slate-950 font-bold">Request Wet Hire Quote</span>
+                <ArrowRight className="w-4 h-4 !text-slate-950" />
               </Link>
             </div>
           </div>
@@ -149,10 +149,10 @@ export default function EquipmentHirePage() {
             <div className="pt-8 mt-6">
               <Link
                 href="/contact"
-                className="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-heading font-bold text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2 transition-all active:scale-95"
+                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 !text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
               >
-                <span>Request Dry Hire Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="!text-slate-950 font-bold">Request Dry Hire Quote</span>
+                <ArrowRight className="w-4 h-4 !text-slate-950" />
               </Link>
             </div>
           </div>
