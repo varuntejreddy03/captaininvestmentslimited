@@ -59,8 +59,9 @@ function SiteGround({ y }: { y: number }) {
   );
 }
 
-// Complete reel featuring all 11 verified machinery units from the client fleet
+// Complete reel featuring verified machinery units from the client fleet
 const ALL_FLEET_PHOTOS = [
+  { src: '/images/excavator-standard.jpg', label: 'Heavy Hydraulic Excavator · 21T to 38T Severe Earthmoving' },
   { src: '/images/excavator-rocks.jpg', label: 'Excavator with Rock Breaker · 21T to 38T Heavy Demolition' },
   { src: '/images/tipper-single-stand-30t.jpg', label: 'Single Stance Tipper Truck · 30 Tonnes (6x4)' },
   { src: '/images/tipper-double-stand-40t.jpg', label: 'Double Stance Tipper Truck · 40 Tonnes (8x4)' },
@@ -145,7 +146,7 @@ function PhotoReel({ playing }: { playing: boolean }) {
 }
 
 export function MachineryStudio3D() {
-  const [mode, setMode] = useState<'3d' | 'photos'>('3d');
+  const [mode, setMode] = useState<'photos' | '3d'>('photos');
   const [isPlaying, setIsPlaying] = useState(true);
   const [canRenderWebGL, setCanRenderWebGL] = useState(false);
   const [containerRef, inView] = useInView<HTMLDivElement>('120px');
@@ -177,7 +178,7 @@ export function MachineryStudio3D() {
             Explore Our Machinery
           </h2>
           <p className="text-base text-slate-600">
-            Rotate the 3D excavator model in real-time or browse high-resolution site photography of all 11 machines in our working fleet.
+            Browse high-resolution site photography of all machines in our working fleet or rotate the interactive 3D model in real-time.
           </p>
         </div>
 
@@ -186,25 +187,12 @@ export function MachineryStudio3D() {
           
           {/* Top Control Bar */}
           <div className="p-4 bg-slate-100/90 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
-            {/* View Mode Toggle */}
+            {/* View Mode Toggle: Live Fleet Photos first, then 3D Heavy Excavator */}
             <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white border border-slate-200 shadow-xs">
               <button
                 type="button"
-                onClick={() => setMode('3d')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
-                  mode === '3d'
-                    ? 'bg-amber-400 text-slate-950 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-950'
-                }`}
-              >
-                <Tractor className="w-3.5 h-3.5" />
-                <span>3D Heavy Excavator</span>
-              </button>
-
-              <button
-                type="button"
                 onClick={() => setMode('photos')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   mode === 'photos'
                     ? 'bg-amber-400 text-slate-950 shadow-sm'
                     : 'text-slate-600 hover:text-slate-950'
@@ -213,13 +201,26 @@ export function MachineryStudio3D() {
                 <Camera className="w-3.5 h-3.5" />
                 <span>Live Fleet Photos (11)</span>
               </button>
+
+              <button
+                type="button"
+                onClick={() => setMode('3d')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  mode === '3d'
+                    ? 'bg-amber-400 text-slate-950 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`}
+              >
+                <Tractor className="w-3.5 h-3.5" />
+                <span>3D Heavy Excavator</span>
+              </button>
             </div>
 
             {/* Play/Pause Button */}
             <button
               type="button"
               onClick={() => setIsPlaying(!isPlaying)}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 transition-colors shadow-xs"
+              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 transition-colors shadow-xs cursor-pointer"
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5 text-amber-500" /> : <Play className="w-3.5 h-3.5 text-emerald-500" />}
               <span>{isPlaying ? 'Simulation Running' : 'Simulation Paused'}</span>

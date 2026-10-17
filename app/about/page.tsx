@@ -96,7 +96,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs font-mono">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">1</span>
-                <span>Excavator with Rock Breaker (21 to 38 Tons)</span>
+                <span>Heavy Excavators & Rock Breaker (21 to 38 Tons)</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 font-semibold text-slate-800 flex items-center gap-2.5">
                 <span className="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shrink-0">2</span>

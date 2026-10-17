@@ -118,6 +118,27 @@ export const SERVICES = [
  */
 export const FLEET_MACHINES: FleetItem[] = [
   {
+    id: 'excavator-standard',
+    name: 'Heavy Hydraulic Excavators (21 to 38 Tons)',
+    category: 'Excavation',
+    model: 'Tracked Heavy Excavator Series',
+    description: 'High-power heavy crawler excavators ranging from 21 tonnes up to 38 tonnes. Engineered with reinforced heavy-duty booms, severe-duty rock buckets, and high hydraulic breakout forces for deep mining pits, hard rock breaking, and mass trenching.',
+    image: '/images/excavator-standard.jpg',
+    specs: [
+      { label: 'Operating Weight', value: '21.5 Tonnes to 38.0 Tonnes' },
+      { label: 'Bucket Capacity', value: '1.2 m³ to 2.2 m³ Rock Buckets' },
+      { label: 'Max Digging Depth', value: '6.6 m to 7.8 m' },
+      { label: 'Attachments', value: 'Severe Rock Bucket & Trenching Boom' },
+    ],
+    idealFor: [
+      'Hard rock excavation',
+      'Mining pit digging & overburden strip',
+      'Deep foundation trenches',
+      'Dam & canal bulk earthworks',
+    ],
+    rateType: 'Hourly / Daily / Project',
+  },
+  {
     id: 'excavator-rocks',
     name: 'Heavy Hydraulic Excavator with Rock Breaker (21 to 38 Tons)',
     category: 'Excavation',

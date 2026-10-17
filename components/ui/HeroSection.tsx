@@ -82,7 +82,7 @@ export function HeroSection() {
                 href="/fleet"
                 className="px-7 py-3.5 rounded-full font-heading font-bold text-xs uppercase tracking-wider text-white hover:text-amber-300 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-amber-400/60 backdrop-blur-md transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95 shadow-md"
               >
-                <span className="text-white">Browse 11 Machines</span>
+                <span className="text-white">Browse Fleet & Plant</span>
               </Link>
             </div>
 

@@ -21,7 +21,7 @@ export default function FleetPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-300 text-amber-900">
               <Truck className="w-3.5 h-3.5 text-amber-600" />
-              <span>Full Plant Equipment Inventory &bull; 11 Units</span>
+              <span>Full Plant Equipment Inventory</span>
             </div>
             <h1 className="font-heading text-4xl sm:text-6xl font-bold uppercase tracking-normal text-slate-900">
               The Heavy Fleet <br />
